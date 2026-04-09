@@ -26,16 +26,25 @@ const appHeaderStyle: CSSProperties = {
   position: 'sticky',
   top: 0,
   zIndex: 30,
-  padding: '14px 16px 10px',
+  padding: '14px 16px 8px',
+}
+
+const appHeaderShellStyle: CSSProperties = {
+  width: '100%',
+  maxWidth: '760px',
+  margin: '0 auto',
+  padding: '14px 18px 12px',
+  display: 'grid',
+  gap: '10px',
   background: 'rgba(238,245,247,0.92)',
   backdropFilter: 'blur(14px)',
-  borderBottom: '1px solid rgba(151,178,190,0.35)',
+  border: '1px solid rgba(151,178,190,0.35)',
+  borderRadius: '24px',
+  boxShadow: '0 16px 34px rgba(23,48,66,0.08)',
 }
 
 const appHeaderInnerStyle: CSSProperties = {
   width: '100%',
-  maxWidth: '1040px',
-  margin: '0 auto',
   display: 'flex',
   gap: '14px',
   alignItems: 'center',
@@ -261,47 +270,48 @@ export function AppLayout() {
       <OfflineStateBanner />
 
       <header style={appHeaderStyle}>
-        <div style={appHeaderInnerStyle}>
-          <Link to="/" aria-label="Gå till Buffertkoll dashboard" style={brandLinkStyle}>
-            <BuffertkollMark size={48} />
-            <div style={brandCopyStyle}>
-              <strong style={{ fontSize: '1.05rem', lineHeight: 1.1 }}>Buffertkoll</strong>
-              <span style={{ color: '#355263', lineHeight: 1.3 }}>{currentView.label}</span>
-            </div>
-          </Link>
-
-          <div style={headerActionsStyle}>
-            <Link to="/" style={getDashboardLinkStyle(isHome)}>
-              <AppIcon kind="home" size={18} color="currentColor" />
-              <span>{isHome ? 'Dashboard aktiv' : 'Till dashboard'}</span>
-            </Link>
-            <button
-              type="button"
-              aria-haspopup="dialog"
-              aria-expanded={isMenuOpen}
-              aria-controls="app-navigation-drawer"
-              aria-label={isMenuOpen ? 'Stäng meny' : 'Öppna meny'}
-              onClick={() => {
-                setIsMenuOpen((current) => !current)
-              }}
-              style={menuButtonStyle}
-            >
-              <AppIcon kind={isMenuOpen ? 'close' : 'menu'} size={22} color="currentColor" />
-              <span>Meny</span>
-            </button>
-          </div>
-        </div>
         <div
-          style={{
-            width: '100%',
-            maxWidth: '1040px',
-            margin: '10px auto 0',
-            color: '#4b6575',
-            lineHeight: 1.45,
-            fontSize: '0.95rem',
-          }}
+          style={appHeaderShellStyle}
         >
-          {currentView.description}
+          <div style={appHeaderInnerStyle}>
+            <Link to="/" aria-label="Gå till Buffertkoll dashboard" style={brandLinkStyle}>
+              <BuffertkollMark size={48} />
+              <div style={brandCopyStyle}>
+                <strong style={{ fontSize: '1.05rem', lineHeight: 1.1 }}>Buffertkoll</strong>
+                <span style={{ color: '#355263', lineHeight: 1.3 }}>{currentView.label}</span>
+              </div>
+            </Link>
+
+            <div style={headerActionsStyle}>
+              <Link to="/" style={getDashboardLinkStyle(isHome)}>
+                <AppIcon kind="home" size={18} color="currentColor" />
+                <span>{isHome ? 'Dashboard aktiv' : 'Till dashboard'}</span>
+              </Link>
+              <button
+                type="button"
+                aria-haspopup="dialog"
+                aria-expanded={isMenuOpen}
+                aria-controls="app-navigation-drawer"
+                aria-label={isMenuOpen ? 'Stäng meny' : 'Öppna meny'}
+                onClick={() => {
+                  setIsMenuOpen((current) => !current)
+                }}
+                style={menuButtonStyle}
+              >
+                <AppIcon kind={isMenuOpen ? 'close' : 'menu'} size={22} color="currentColor" />
+                <span>Meny</span>
+              </button>
+            </div>
+          </div>
+          <div
+            style={{
+              color: '#4b6575',
+              lineHeight: 1.45,
+              fontSize: '0.95rem',
+            }}
+          >
+            {currentView.description}
+          </div>
         </div>
       </header>
 
