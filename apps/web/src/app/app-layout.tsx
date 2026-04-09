@@ -105,7 +105,7 @@ const overlayStyle: CSSProperties = {
 const drawerStyle: CSSProperties = {
   position: 'fixed',
   top: 0,
-  right: 'max(0px, calc((100vw - 760px) / 2))',
+  left: 'min(calc((100vw + 760px) / 2), calc(100vw - min(380px, 100vw)))',
   zIndex: 35,
   width: 'min(380px, 100vw)',
   height: '100vh',
@@ -115,6 +115,8 @@ const drawerStyle: CSSProperties = {
   gap: '18px',
   background: 'linear-gradient(180deg, #fbfdfd 0%, #ecf4f7 100%)',
   boxShadow: '-24px 0 60px rgba(18,41,56,0.22)',
+  overflowY: 'auto',
+  overscrollBehavior: 'contain',
 }
 
 function getNavigationLinkStyle(isActive: boolean): CSSProperties {
@@ -266,6 +268,23 @@ export function AppLayout() {
 
     return () => {
       window.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [isMenuOpen])
+
+  useEffect(() => {
+    if (!isMenuOpen) {
+      return
+    }
+
+    const previousBodyOverflow = document.body.style.overflow
+    const previousHtmlOverflow = document.documentElement.style.overflow
+
+    document.body.style.overflow = 'hidden'
+    document.documentElement.style.overflow = 'hidden'
+
+    return () => {
+      document.body.style.overflow = previousBodyOverflow
+      document.documentElement.style.overflow = previousHtmlOverflow
     }
   }, [isMenuOpen])
 
