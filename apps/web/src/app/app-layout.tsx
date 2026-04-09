@@ -105,7 +105,7 @@ const overlayStyle: CSSProperties = {
 const drawerStyle: CSSProperties = {
   position: 'fixed',
   top: 0,
-  right: 0,
+  right: 'max(0px, calc((100vw - 760px) / 2))',
   zIndex: 35,
   width: 'min(380px, 100vw)',
   height: '100vh',
