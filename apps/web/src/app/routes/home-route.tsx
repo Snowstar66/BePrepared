@@ -1,74 +1,44 @@
 import { useNavigate } from 'react-router-dom'
+import {
+  accentButtonStyle,
+  actionGridStyle,
+  pageEyebrowStyle,
+  pageIntroStyle,
+  pageMainStyle,
+  pagePanelStyle,
+  pageTitleStyle,
+  pageHeaderStyle,
+  primaryButtonStyle,
+  secondaryButtonStyle,
+} from '../../shared/ui/styles'
 import { PreparednessOverview } from '../../features/preparedness-status/components/preparedness-overview'
 
 export function HomeRoute() {
   const navigate = useNavigate()
 
   return (
-    <main
-      style={{
-        minHeight: '100vh',
-        padding: '24px',
-        display: 'grid',
-        placeItems: 'center',
-      }}
-    >
-      <section
-        aria-labelledby="app-shell-title"
-        style={{
-          width: '100%',
-          maxWidth: '720px',
-          padding: '24px',
-          borderRadius: '20px',
-          background:
-            'linear-gradient(180deg, rgba(255,255,255,0.96), rgba(242,247,249,0.96))',
-          boxShadow: '0 24px 60px rgba(23,48,66,0.12)',
-        }}
-      >
-        <p
-          style={{
-            margin: 0,
-            color: '#4b6575',
-            fontSize: '0.9rem',
-            textTransform: 'uppercase',
-            letterSpacing: '0.08em',
-          }}
-        >
-          BePrepared
-        </p>
-        <h1
-          id="app-shell-title"
-          style={{ marginBottom: '12px', fontSize: 'clamp(2rem, 6vw, 3rem)' }}
-        >
-          Hushållets beredskap i lugn överblick
-        </h1>
-        <p
-          style={{
-            marginTop: 0,
-            marginBottom: '20px',
-            color: '#355263',
-            lineHeight: 1.6,
-          }}
-        >
-          Här ser du hushållets aktuella läge, de viktigaste luckorna och vilket
-          nästa steg som gör störst nytta just nu.
-        </p>
+    <main style={pageMainStyle}>
+      <section aria-labelledby="app-shell-title" style={pagePanelStyle}>
+        <div style={pageHeaderStyle}>
+          <p style={pageEyebrowStyle}>BePrepared</p>
+          <h1 id="app-shell-title" style={pageTitleStyle}>
+            Hushållets beredskap i lugn överblick
+          </h1>
+          <p style={pageIntroStyle}>
+            Här ser du hushållets aktuella läge, de viktigaste luckorna och vilket
+            nästa steg som gör störst nytta just nu.
+          </p>
+        </div>
+
         <PreparednessOverview />
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
+
+        <div style={actionGridStyle}>
           <button
             type="button"
             onClick={() => {
               void navigate('/snabbhjalp')
             }}
-            style={{
-              minWidth: '44px',
-              minHeight: '44px',
-              padding: '12px 18px',
-              borderRadius: '999px',
-              border: 'none',
-              background: '#325f7f',
-              color: '#f6fbfd',
-            }}
+            style={accentButtonStyle}
           >
             Snabbhjälp
           </button>
@@ -77,15 +47,7 @@ export function HomeRoute() {
             onClick={() => {
               void navigate('/profil')
             }}
-            style={{
-              minWidth: '44px',
-              minHeight: '44px',
-              padding: '12px 18px',
-              borderRadius: '999px',
-              border: 'none',
-              background: '#173042',
-              color: '#f6fbfd',
-            }}
+            style={primaryButtonStyle}
           >
             Hushållsprofil
           </button>
@@ -94,15 +56,7 @@ export function HomeRoute() {
             onClick={() => {
               void navigate('/forrad')
             }}
-            style={{
-              minWidth: '44px',
-              minHeight: '44px',
-              padding: '12px 18px',
-              borderRadius: '999px',
-              border: '1px solid #173042',
-              background: '#eef5f7',
-              color: '#173042',
-            }}
+            style={secondaryButtonStyle}
           >
             Se förråd
           </button>
@@ -111,15 +65,7 @@ export function HomeRoute() {
             onClick={() => {
               void navigate('/forrad/ny')
             }}
-            style={{
-              minWidth: '44px',
-              minHeight: '44px',
-              padding: '12px 18px',
-              borderRadius: '999px',
-              border: '1px solid #173042',
-              background: '#f6fbfd',
-              color: '#173042',
-            }}
+            style={secondaryButtonStyle}
           >
             Lägg till vara
           </button>
@@ -128,15 +74,7 @@ export function HomeRoute() {
             onClick={() => {
               void navigate('/gap-analys')
             }}
-            style={{
-              minWidth: '44px',
-              minHeight: '44px',
-              padding: '12px 18px',
-              borderRadius: '999px',
-              border: '1px solid #173042',
-              background: '#f6fbfd',
-              color: '#173042',
-            }}
+            style={secondaryButtonStyle}
           >
             Se gap-analys
           </button>
@@ -145,15 +83,7 @@ export function HomeRoute() {
             onClick={() => {
               void navigate('/underhall')
             }}
-            style={{
-              minWidth: '44px',
-              minHeight: '44px',
-              padding: '12px 18px',
-              borderRadius: '999px',
-              border: '1px solid #173042',
-              background: '#fff4e8',
-              color: '#173042',
-            }}
+            style={secondaryButtonStyle}
           >
             Underhåll och rotation
           </button>
@@ -162,15 +92,7 @@ export function HomeRoute() {
             onClick={() => {
               void navigate('/installningar/data')
             }}
-            style={{
-              minWidth: '44px',
-              minHeight: '44px',
-              padding: '12px 18px',
-              borderRadius: '999px',
-              border: '1px solid #173042',
-              background: '#eef5f7',
-              color: '#173042',
-            }}
+            style={secondaryButtonStyle}
           >
             Datahantering
           </button>

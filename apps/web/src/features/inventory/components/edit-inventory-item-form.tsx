@@ -3,6 +3,17 @@ import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import {
+  actionStackStyle,
+  fieldStyle,
+  getDangerButtonStyle,
+  inputStyle,
+  mutedCardStyle,
+  pageIntroStyle,
+  primaryButtonStyle,
+  secondaryButtonStyle,
+  warmCardStyle,
+} from '../../../shared/ui/styles'
+import {
   recordFeedbackForDeletedItem,
   recordFeedbackForUpdatedItem,
 } from '../../preparedness-status/lib/preparedness-delta-feedback'
@@ -14,21 +25,6 @@ import {
   type InventoryItemRecord,
   type InventoryItemFormValues,
 } from '../schemas/inventory-item-schema'
-
-const fieldStyle = {
-  display: 'grid',
-  gap: '8px',
-}
-
-const inputStyle = {
-  minHeight: '44px',
-  width: '100%',
-  padding: '10px 12px',
-  borderRadius: '12px',
-  border: '1px solid #b7c8d4',
-  background: '#f8fbfc',
-  color: '#173042',
-}
 
 export function EditInventoryItemForm() {
   const { itemId } = useParams()
@@ -134,35 +130,13 @@ export function EditInventoryItemForm() {
 
   if (itemMissing) {
     return (
-      <section
-        style={{
-          display: 'grid',
-          gap: '12px',
-          padding: '16px',
-          borderRadius: '16px',
-          background: '#eef5f7',
-        }}
-      >
+      <section style={mutedCardStyle}>
         <h2 style={{ margin: 0, color: '#173042' }}>Varan kunde inte hittas</h2>
-        <p style={{ margin: 0, color: '#355263', lineHeight: 1.6 }}>
+        <p style={pageIntroStyle}>
           Den kan redan ha tagits bort. Gå tillbaka till lageröversikten och välj
           en annan artikel.
         </p>
-        <Link
-          to="/forrad"
-          style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            minWidth: '44px',
-            minHeight: '44px',
-            padding: '12px 18px',
-            borderRadius: '999px',
-            background: '#173042',
-            color: '#f6fbfd',
-            textDecoration: 'none',
-          }}
-        >
+        <Link to="/forrad" style={secondaryButtonStyle}>
           Tillbaka till förrådet
         </Link>
       </section>
@@ -176,7 +150,7 @@ export function EditInventoryItemForm() {
           setSaveMessage('')
           void handleSubmit(onSubmit)(event)
         }}
-        style={{ display: 'grid', gap: '16px' }}
+        style={mutedCardStyle}
       >
         <div style={fieldStyle}>
           <label htmlFor="name">Varans namn</label>
@@ -230,12 +204,12 @@ export function EditInventoryItemForm() {
           }}
         >
           <div style={fieldStyle}>
-            <label htmlFor="unit">Enhet (valfritt)</label>
+            <label htmlFor="unit">Enhet, valfritt</label>
             <input id="unit" style={inputStyle} {...register('unit')} />
           </div>
 
           <div style={fieldStyle}>
-            <label htmlFor="bestBefore">Bäst före (valfritt)</label>
+            <label htmlFor="bestBefore">Bäst före, valfritt</label>
             <input
               id="bestBefore"
               type="date"
@@ -245,20 +219,8 @@ export function EditInventoryItemForm() {
           </div>
         </div>
 
-        <div style={{ display: 'grid', gap: '12px' }}>
-          <button
-            type="submit"
-            disabled={isSubmitting}
-            style={{
-              minWidth: '44px',
-              minHeight: '44px',
-              padding: '12px 18px',
-              borderRadius: '999px',
-              border: 'none',
-              background: '#173042',
-              color: '#f6fbfd',
-            }}
-          >
+        <div style={actionStackStyle}>
+          <button type="submit" disabled={isSubmitting} style={primaryButtonStyle}>
             {isSubmitting ? 'Sparar...' : 'Spara ändringar'}
           </button>
 
@@ -270,20 +232,11 @@ export function EditInventoryItemForm() {
         </div>
       </form>
 
-      <section
-        aria-labelledby="delete-item-title"
-        style={{
-          display: 'grid',
-          gap: '12px',
-          padding: '16px',
-          borderRadius: '16px',
-          background: '#fff4e8',
-        }}
-      >
+      <section aria-labelledby="delete-item-title" style={warmCardStyle}>
         <h2 id="delete-item-title" style={{ margin: 0, color: '#173042' }}>
           Ta bort varan
         </h2>
-        <p style={{ margin: 0, color: '#355263', lineHeight: 1.6 }}>
+        <p style={pageIntroStyle}>
           Det här är en permanent ändring. Bekräfta att du verkligen vill ta bort
           varan innan vi genomför den.
         </p>
@@ -309,15 +262,7 @@ export function EditInventoryItemForm() {
           onClick={() => {
             void handleDelete()
           }}
-          style={{
-            minWidth: '44px',
-            minHeight: '44px',
-            padding: '12px 18px',
-            borderRadius: '999px',
-            border: '1px solid #8a2d1f',
-            background: isDeleteArmed ? '#8a2d1f' : '#f9e6e2',
-            color: isDeleteArmed ? '#fff8f6' : '#8a2d1f',
-          }}
+          style={getDangerButtonStyle(isDeleteArmed)}
         >
           Ta bort vara
         </button>

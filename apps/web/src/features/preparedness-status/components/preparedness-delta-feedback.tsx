@@ -1,3 +1,5 @@
+import { mutedCardStyle } from '../../../shared/ui/styles'
+
 interface PreparednessDeltaFeedbackProps {
   title: string
   body: string
@@ -8,16 +10,7 @@ export function PreparednessDeltaFeedback({
   body,
 }: PreparednessDeltaFeedbackProps) {
   return (
-    <section
-      aria-labelledby="preparedness-delta-feedback-title"
-      style={{
-        display: 'grid',
-        gap: '8px',
-        padding: '16px',
-        borderRadius: '16px',
-        background: '#e7f6ed',
-      }}
-    >
+    <section aria-labelledby="preparedness-delta-feedback-title" style={mutedCardStyle}>
       <h2
         id="preparedness-delta-feedback-title"
         style={{ margin: 0, color: '#173042' }}

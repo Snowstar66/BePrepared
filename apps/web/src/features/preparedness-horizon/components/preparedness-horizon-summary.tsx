@@ -1,3 +1,4 @@
+import { mutedCardStyle } from '../../../shared/ui/styles'
 import type { PreparednessHorizonRecord } from '../schemas/preparedness-horizon-schema'
 
 interface PreparednessHorizonSummaryProps {
@@ -18,16 +19,7 @@ export function PreparednessHorizonSummary({
   }
 
   return (
-    <section
-      aria-labelledby="preparedness-horizon-summary-title"
-      style={{
-        display: 'grid',
-        gap: '8px',
-        padding: '16px',
-        borderRadius: '16px',
-        background: '#eef5f7',
-      }}
-    >
+    <section aria-labelledby="preparedness-horizon-summary-title" style={mutedCardStyle}>
       <h2
         id="preparedness-horizon-summary-title"
         style={{ margin: 0, fontSize: '1.05rem', color: '#173042' }}

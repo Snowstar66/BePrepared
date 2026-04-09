@@ -1,90 +1,39 @@
 import { Link } from 'react-router-dom'
 import { InventoryOverview } from '../../features/inventory/components/inventory-overview'
+import {
+  actionGridStyle,
+  pageEyebrowStyle,
+  pageHeaderStyle,
+  pageIntroStyle,
+  pageMainStyle,
+  pagePanelStyle,
+  pageTitleStyle,
+  primaryButtonStyle,
+  secondaryButtonStyle,
+} from '../../shared/ui/styles'
 
 export function InventoryOverviewRoute() {
   return (
-    <main
-      style={{
-        minHeight: '100vh',
-        padding: '24px',
-        display: 'grid',
-        placeItems: 'center',
-      }}
-    >
-      <section
-        aria-labelledby="inventory-overview-title"
-        style={{
-          width: '100%',
-          maxWidth: '720px',
-          padding: '24px',
-          borderRadius: '20px',
-          background:
-            'linear-gradient(180deg, rgba(255,255,255,0.96), rgba(242,247,249,0.96))',
-          boxShadow: '0 24px 60px rgba(23,48,66,0.12)',
-          display: 'grid',
-          gap: '20px',
-        }}
-      >
-        <div style={{ display: 'grid', gap: '12px' }}>
-          <p
-            style={{
-              margin: 0,
-              color: '#4b6575',
-              fontSize: '0.9rem',
-              textTransform: 'uppercase',
-              letterSpacing: '0.08em',
-            }}
-          >
-            Förråd
-          </p>
-          <h1
-            id="inventory-overview-title"
-            style={{ margin: 0, fontSize: 'clamp(2rem, 6vw, 3rem)' }}
-          >
+    <main style={pageMainStyle}>
+      <section aria-labelledby="inventory-overview-title" style={pagePanelStyle}>
+        <div style={pageHeaderStyle}>
+          <p style={pageEyebrowStyle}>Förråd</p>
+          <h1 id="inventory-overview-title" style={pageTitleStyle}>
             Se ditt lager i tydliga kategorier
           </h1>
-          <p style={{ margin: 0, color: '#355263', lineHeight: 1.6 }}>
-            Här får du en tydlig överblick över vad hushållet redan har hemma
-            och vilka kategorier som behöver mest uppmärksamhet.
+          <p style={pageIntroStyle}>
+            Här får du en tydlig överblick över vad hushållet redan har hemma och
+            vilka kategorier som behöver mest uppmärksamhet.
           </p>
         </div>
 
         <InventoryOverview />
 
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
-          <Link
-            to="/forrad/ny"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              minWidth: '44px',
-              minHeight: '44px',
-              padding: '12px 18px',
-              borderRadius: '999px',
-              background: '#173042',
-              color: '#f6fbfd',
-              textDecoration: 'none',
-            }}
-          >
+        <div style={actionGridStyle}>
+          <Link to="/forrad/ny" style={primaryButtonStyle}>
             Lägg till vara
           </Link>
-          <Link
-            to="/behov"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              minWidth: '44px',
-              minHeight: '44px',
-              padding: '12px 18px',
-              borderRadius: '999px',
-              border: '1px solid #173042',
-              background: '#f6fbfd',
-              color: '#173042',
-              textDecoration: 'none',
-            }}
-          >
+          <Link to="/behov" style={secondaryButtonStyle}>
             Tillbaka till behovsöversikten
           </Link>
         </div>

@@ -1,3 +1,4 @@
+import { surfaceCardStyle } from '../../../shared/ui/styles'
 import type { PreparednessOverviewState } from '../services/preparedness-status-service'
 
 interface PreparednessStatusCardProps {
@@ -26,17 +27,7 @@ export function PreparednessStatusCard({
   label,
 }: PreparednessStatusCardProps) {
   return (
-    <section
-      aria-labelledby="preparedness-status-title"
-      style={{
-        display: 'grid',
-        gap: '12px',
-        padding: '20px',
-        borderRadius: '20px',
-        background: '#f7fbfc',
-        border: '1px solid #d7e5eb',
-      }}
-    >
+    <section aria-labelledby="preparedness-status-title" style={surfaceCardStyle}>
       <div
         style={{
           display: 'flex',
@@ -54,6 +45,7 @@ export function PreparednessStatusCard({
             padding: '6px 10px',
             borderRadius: '999px',
             background: '#eef5f7',
+            border: '1px solid #d7e5eb',
             color: getAccentColor(state),
             fontWeight: 600,
             fontSize: '0.9rem',

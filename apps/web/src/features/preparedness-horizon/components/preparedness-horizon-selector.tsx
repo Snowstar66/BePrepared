@@ -1,4 +1,11 @@
 import { useEffect, useState } from 'react'
+import {
+  actionStackStyle,
+  getSelectableCardStyle,
+  pageIntroStyle,
+  primaryButtonStyle,
+  surfaceCardStyle,
+} from '../../../shared/ui/styles'
 import { PreparednessHorizonService } from '../services/preparedness-horizon-service'
 import {
   preparednessHorizonFormSchema,
@@ -53,7 +60,7 @@ export function PreparednessHorizonSelector({
   }
 
   return (
-    <form onSubmit={handleSubmit} style={{ display: 'grid', gap: '16px' }}>
+    <form onSubmit={handleSubmit} style={surfaceCardStyle}>
       <fieldset
         style={{
           margin: 0,
@@ -63,7 +70,7 @@ export function PreparednessHorizonSelector({
           gap: '12px',
         }}
       >
-        <legend style={{ fontWeight: 600, color: '#173042', marginBottom: '4px' }}>
+        <legend style={{ fontWeight: 700, color: '#173042', marginBottom: '8px' }}>
           Välj beredskapshorisont
         </legend>
 
@@ -71,18 +78,7 @@ export function PreparednessHorizonSelector({
           <label
             key={option.value}
             htmlFor={option.value}
-            style={{
-              display: 'grid',
-              gap: '4px',
-              padding: '14px 16px',
-              borderRadius: '16px',
-              border:
-                selectedHorizon === option.value
-                  ? '2px solid #173042'
-                  : '1px solid #b7c8d4',
-              background: selectedHorizon === option.value ? '#eef5f7' : '#f8fbfc',
-              cursor: 'pointer',
-            }}
+            style={getSelectableCardStyle(selectedHorizon === option.value)}
           >
             <span style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
               <input
@@ -97,11 +93,9 @@ export function PreparednessHorizonSelector({
                 }}
                 style={{ minWidth: '20px', minHeight: '20px' }}
               />
-              <span style={{ fontWeight: 600, color: '#173042' }}>{option.label}</span>
+              <span style={{ fontWeight: 700, color: '#173042' }}>{option.label}</span>
             </span>
-            <span style={{ color: '#355263', lineHeight: 1.5 }}>
-              {option.description}
-            </span>
+            <span style={pageIntroStyle}>{option.description}</span>
           </label>
         ))}
       </fieldset>
@@ -112,20 +106,8 @@ export function PreparednessHorizonSelector({
         </p>
       ) : null}
 
-      <div style={{ display: 'grid', gap: '12px' }}>
-        <button
-          type="submit"
-          disabled={isSubmitting}
-          style={{
-            minWidth: '44px',
-            minHeight: '44px',
-            padding: '12px 18px',
-            borderRadius: '999px',
-            border: 'none',
-            background: '#173042',
-            color: '#f6fbfd',
-          }}
-        >
+      <div style={actionStackStyle}>
+        <button type="submit" disabled={isSubmitting} style={primaryButtonStyle}>
           {isSubmitting ? 'Sparar...' : 'Spara planeringsperiod'}
         </button>
 

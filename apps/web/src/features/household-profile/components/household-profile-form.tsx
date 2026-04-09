@@ -1,27 +1,20 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
+import {
+  actionStackStyle,
+  fieldStyle,
+  inputStyle,
+  pageIntroStyle,
+  primaryButtonStyle,
+  surfaceCardStyle,
+} from '../../../shared/ui/styles'
 import { HouseholdProfileService } from '../services/household-profile-service'
 import {
   defaultHouseholdProfileFormValues,
   householdProfileFormSchema,
   type HouseholdProfileFormValues,
 } from '../schemas/household-profile-schema'
-
-const fieldStyle = {
-  display: 'grid',
-  gap: '8px',
-}
-
-const inputStyle = {
-  minHeight: '44px',
-  width: '100%',
-  padding: '10px 12px',
-  borderRadius: '12px',
-  border: '1px solid #b7c8d4',
-  background: '#f8fbfc',
-  color: '#173042',
-}
 
 export function HouseholdProfileForm() {
   const [saveMessage, setSaveMessage] = useState<string>('')
@@ -68,14 +61,11 @@ export function HouseholdProfileForm() {
         setSaveMessage('')
         void handleSubmit(onSubmit)(event)
       }}
-      style={{ display: 'grid', gap: '20px' }}
+      style={surfaceCardStyle}
     >
-      <p
-        id="household-profile-description"
-        style={{ margin: 0, color: '#355263', lineHeight: 1.6 }}
-      >
-        Profilen sparas bara på den här enheten och ligger till grund för
-        kommande beräkningar.
+      <p id="household-profile-description" style={pageIntroStyle}>
+        Profilen sparas bara på den här enheten och ligger till grund för kommande
+        beräkningar.
       </p>
 
       <fieldset
@@ -87,7 +77,7 @@ export function HouseholdProfileForm() {
           gap: '16px',
         }}
       >
-        <legend style={{ fontWeight: 600, color: '#173042', marginBottom: '4px' }}>
+        <legend style={{ fontWeight: 700, color: '#173042', marginBottom: '4px' }}>
           Uppgifter om hushållet
         </legend>
 
@@ -112,7 +102,7 @@ export function HouseholdProfileForm() {
         </div>
 
         <div style={fieldStyle}>
-          <label htmlFor="children">Antal barn (valfritt)</label>
+          <label htmlFor="children">Antal barn, valfritt</label>
           <input
             id="children"
             inputMode="numeric"
@@ -131,11 +121,13 @@ export function HouseholdProfileForm() {
           ) : null}
         </div>
 
-        <div
+        <label
+          htmlFor="hasPets"
           style={{
             display: 'flex',
             alignItems: 'center',
             gap: '12px',
+            minHeight: '48px',
           }}
         >
           <input
@@ -145,23 +137,15 @@ export function HouseholdProfileForm() {
             style={{ minWidth: '20px', minHeight: '20px' }}
             {...register('hasPets')}
           />
-          <label htmlFor="hasPets">Hushållet har husdjur</label>
-        </div>
+          <span>Hushållet har husdjur</span>
+        </label>
       </fieldset>
 
-      <div style={{ display: 'grid', gap: '12px' }}>
+      <div style={actionStackStyle}>
         <button
           type="submit"
           disabled={isLoading || isSubmitting}
-          style={{
-            minWidth: '44px',
-            minHeight: '44px',
-            padding: '12px 18px',
-            borderRadius: '999px',
-            border: 'none',
-            background: '#173042',
-            color: '#f6fbfd',
-          }}
+          style={primaryButtonStyle}
         >
           {isSubmitting ? 'Sparar...' : 'Spara hushållsprofil'}
         </button>

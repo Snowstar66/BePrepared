@@ -1,3 +1,5 @@
+import { mutedCardStyle } from '../../../shared/ui/styles'
+
 interface GapSummaryCardProps {
   highlights: Array<{
     label: string
@@ -8,16 +10,7 @@ interface GapSummaryCardProps {
 
 export function GapSummaryCard({ highlights }: GapSummaryCardProps) {
   return (
-    <section
-      aria-labelledby="gap-summary-card-title"
-      style={{
-        display: 'grid',
-        gap: '12px',
-        padding: '20px',
-        borderRadius: '20px',
-        background: '#eef5f7',
-      }}
-    >
+    <section aria-labelledby="gap-summary-card-title" style={mutedCardStyle}>
       <h2 id="gap-summary-card-title" style={{ margin: 0, color: '#173042' }}>
         Viktigaste luckorna just nu
       </h2>

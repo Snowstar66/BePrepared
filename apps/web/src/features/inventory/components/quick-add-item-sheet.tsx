@@ -1,6 +1,14 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
+import {
+  actionStackStyle,
+  fieldStyle,
+  inputStyle,
+  pageIntroStyle,
+  primaryButtonStyle,
+  surfaceCardStyle,
+} from '../../../shared/ui/styles'
 import { recordFeedbackForAddedItem } from '../../preparedness-status/lib/preparedness-delta-feedback'
 import { InventoryService } from '../services/inventory-service'
 import {
@@ -9,21 +17,6 @@ import {
   inventoryItemFormSchema,
   type InventoryItemFormValues,
 } from '../schemas/inventory-item-schema'
-
-const fieldStyle = {
-  display: 'grid',
-  gap: '8px',
-}
-
-const inputStyle = {
-  minHeight: '44px',
-  width: '100%',
-  padding: '10px 12px',
-  borderRadius: '12px',
-  border: '1px solid #b7c8d4',
-  background: '#f8fbfc',
-  color: '#173042',
-}
 
 export function QuickAddItemSheet() {
   const [saveMessage, setSaveMessage] = useState('')
@@ -49,22 +42,12 @@ export function QuickAddItemSheet() {
   }
 
   return (
-    <section
-      aria-labelledby="quick-add-item-title"
-      style={{
-        display: 'grid',
-        gap: '20px',
-        padding: '20px',
-        borderRadius: '20px',
-        background: '#f7fbfc',
-        border: '1px solid #d7e5eb',
-      }}
-    >
+    <section aria-labelledby="quick-add-item-title" style={surfaceCardStyle}>
       <div style={{ display: 'grid', gap: '8px' }}>
         <h2 id="quick-add-item-title" style={{ margin: 0, color: '#173042' }}>
           Lägg till vara
         </h2>
-        <p style={{ margin: 0, color: '#355263', lineHeight: 1.6 }}>
+        <p style={pageIntroStyle}>
           Registrera en vara med så få fält som möjligt. Namn, kategori och antal
           räcker för att komma igång.
         </p>
@@ -132,7 +115,7 @@ export function QuickAddItemSheet() {
           }}
         >
           <div style={fieldStyle}>
-            <label htmlFor="unit">Enhet (valfritt)</label>
+            <label htmlFor="unit">Enhet, valfritt</label>
             <input
               id="unit"
               placeholder="t.ex. liter eller st"
@@ -142,7 +125,7 @@ export function QuickAddItemSheet() {
           </div>
 
           <div style={fieldStyle}>
-            <label htmlFor="bestBefore">Bäst före (valfritt)</label>
+            <label htmlFor="bestBefore">Bäst före, valfritt</label>
             <input
               id="bestBefore"
               type="date"
@@ -152,20 +135,8 @@ export function QuickAddItemSheet() {
           </div>
         </div>
 
-        <div style={{ display: 'grid', gap: '12px' }}>
-          <button
-            type="submit"
-            disabled={isSubmitting}
-            style={{
-              minWidth: '44px',
-              minHeight: '44px',
-              padding: '12px 18px',
-              borderRadius: '999px',
-              border: 'none',
-              background: '#173042',
-              color: '#f6fbfd',
-            }}
-          >
+        <div style={actionStackStyle}>
+          <button type="submit" disabled={isSubmitting} style={primaryButtonStyle}>
             {isSubmitting ? 'Sparar...' : 'Lägg till vara'}
           </button>
 
