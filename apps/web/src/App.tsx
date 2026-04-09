@@ -4,6 +4,7 @@ import { OfflineStateBanner } from './features/offline-sync/components/offline-s
 import { DataRecoveryPanel } from './features/settings-export/components/data-recovery-panel'
 import { LocalDataManagementService } from './features/settings-export/services/local-data-management-service'
 import { router } from './app/router'
+import { startSwedishTextNormalizer } from './shared/i18n/swedish-text-normalizer'
 
 function App() {
   const [localDataManagementService] = useState(
@@ -38,6 +39,20 @@ function App() {
       isMounted = false
     }
   }, [localDataManagementService])
+
+  useEffect(() => {
+    if (import.meta.env.MODE === 'test') {
+      return undefined
+    }
+
+    const rootElement = document.getElementById('root')
+
+    if (rootElement === null) {
+      return undefined
+    }
+
+    return startSwedishTextNormalizer(rootElement)
+  }, [])
 
   if (integrityState.isChecking) {
     return <p style={{ margin: '24px', color: '#355263' }}>Validerar lokal data...</p>
