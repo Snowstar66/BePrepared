@@ -1,4 +1,4 @@
-const CACHE_NAME = 'beprepared-offline-v1'
+const CACHE_NAME = 'beprepared-offline-v2'
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
