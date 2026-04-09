@@ -32,7 +32,7 @@ function getMissingSetupOverview(
   const missingParts = []
 
   if (!hasProfile) {
-    missingParts.push('hushallsprofil')
+    missingParts.push('hushållsprofil')
   }
 
   if (!hasHorizon) {
@@ -41,22 +41,22 @@ function getMissingSetupOverview(
 
   return {
     state: 'missing',
-    statusTitle: 'Beredskapsbilden ar inte igang an',
-    statusBody: `Vi saknar fortfarande ${missingParts.join(' och ')} innan vi kan visa en palitlig status for hushallet.`,
-    statusLabel: 'Starta med grunden',
+    statusTitle: 'Beredskapsbilden är inte igång ännu',
+    statusBody: `Vi saknar fortfarande ${missingParts.join(' och ')} innan vi kan visa en pålitlig status för hushållet.`,
+    statusLabel: 'Börja med grunden',
     gapHighlights: [
       {
-        label: 'Det som behovs forst',
+        label: 'Det som behövs först',
         summary:
-          'Fyll i hushallsprofilen och valj planeringsperiod sa att behov och gap kan raknas pa ratt niva.',
-        statusLabel: 'Ofullstandig grund',
+          'Fyll i hushållsprofilen och välj planeringsperiod så att behov och luckor kan beräknas på rätt nivå.',
+        statusLabel: 'Ofullständig grund',
       },
     ],
-    nextStepTitle: 'Basta nasta steg',
+    nextStepTitle: 'Bästa nästa steg',
     nextStepBody:
-      'Borja i hushallsprofilen. Darifran far du ocksa valt planeringsperiod innan vi fortsatter till status och gap.',
+      'Börja med hushållsprofilen. Där väljer du också planeringsperiod innan vi går vidare till status och luckor.',
     nextStepHref: '/profil',
-    nextStepLabel: 'Ga till hushallsprofilen',
+    nextStepLabel: 'Gå till hushållsprofilen',
   }
 }
 
@@ -72,9 +72,9 @@ function buildStatusCopy(
 ) {
   if (state === 'complete') {
     return {
-      title: 'Grundnivan ar pa plats',
-      body: `Vatten och mat ar registrerade pa eller over hushallets planeringsniva for ${analysis.horizonLabel.toLowerCase()}.`,
-      label: 'Stabil grundniva',
+      title: 'Grundnivån är på plats',
+      body: `Vatten och mat är registrerade på eller över hushållets planeringsnivå för ${analysis.horizonLabel.toLowerCase()}.`,
+      label: 'Stabil grundnivå',
     }
   }
 
@@ -84,12 +84,12 @@ function buildStatusCopy(
 
   return {
     title: hasUncertainCategory
-      ? 'Du har en lovande men delvis osaker statusbild'
-      : 'Det finns fortfarande tydliga gap att fylla',
+      ? 'Du har en lovande men delvis osäker statusbild'
+      : 'Det finns fortfarande tydliga luckor att fylla',
     body: hasUncertainCategory
-      ? 'Hushallet har en tydlig start, men nagra poster behover tydligare enheter innan statusen blir helt tillforlitlig.'
-      : 'Statusbilden visar vad som saknas mest just nu, sa att du kan ta ett tydligt nasta steg utan att gissa.',
-    label: hasUncertainCategory ? 'Delvis kartlagt' : 'Fortsatt att bygga',
+      ? 'Hushållet har en tydlig start, men några poster behöver tydligare enheter innan statusen blir helt tillförlitlig.'
+      : 'Statusbilden visar vad som saknas mest just nu, så att du kan ta nästa steg utan att gissa.',
+    label: hasUncertainCategory ? 'Delvis kartlagt' : 'Fortsätt bygga',
   }
 }
 
@@ -105,10 +105,10 @@ function getNextStepForCategories(
 
   if (uncertainCategory !== undefined) {
     return {
-      nextStepTitle: 'Basta nasta steg',
-      nextStepBody: `Forbattra enheterna i ${uncertainCategory.label.toLowerCase()} sa att statusen kan bli mer exakt och handlingsbar.`,
+      nextStepTitle: 'Bästa nästa steg',
+      nextStepBody: `Förtydliga enheterna i ${uncertainCategory.label.toLowerCase()} så att statusen blir mer exakt och användbar.`,
       nextStepHref: '/forrad',
-      nextStepLabel: 'Se over lagret',
+      nextStepLabel: 'Se över lagret',
     }
   }
 
@@ -118,17 +118,17 @@ function getNextStepForCategories(
 
   if (incompleteCategory !== undefined) {
     return {
-      nextStepTitle: 'Basta nasta steg',
-      nextStepBody: `Komplettera ${incompleteCategory.label.toLowerCase()} for att minska hushallets viktigaste gap.`,
+      nextStepTitle: 'Bästa nästa steg',
+      nextStepBody: `Komplettera ${incompleteCategory.label.toLowerCase()} för att minska hushållets viktigaste lucka.`,
       nextStepHref: '/forrad/ny',
-      nextStepLabel: 'Lagg till vara',
+      nextStepLabel: 'Lägg till vara',
     }
   }
 
   return {
-    nextStepTitle: 'Basta nasta steg',
+    nextStepTitle: 'Bästa nästa steg',
     nextStepBody:
-      'Grundnivan ser bra ut. Fortsatt hall lagret uppdaterat och anvand gap-analysen for att folja forandringar over tid.',
+      'Grundnivån ser bra ut. Fortsätt hålla lagret uppdaterat och använd gap-analysen för att följa förändringar över tid.',
     nextStepHref: '/gap-analys',
     nextStepLabel: 'Se full gap-analys',
   }
@@ -180,7 +180,7 @@ export class PreparednessStatusService {
       statusTitle: statusCopy.title,
       statusBody:
         inventoryItems.length === 0
-          ? `${statusCopy.body} Inga varor ar registrerade an, sa statusen bygger just nu helt pa behovsbilden.`
+          ? `${statusCopy.body} Inga varor är registrerade ännu, så statusen bygger just nu helt på behovsbilden.`
           : statusCopy.body,
       statusLabel: statusCopy.label,
       gapHighlights: analysis.categories.map((category) => ({

@@ -23,6 +23,6 @@ describe('calculateBaselinePreparednessNeeds', () => {
     expect(result.totalWaterLiters).toBe(27)
     expect(result.dailyMeals).toBe(9)
     expect(result.totalMeals).toBe(27)
-    expect(result.petsNote).toMatch(/husdjur ar inte inraknade/i)
+    expect(result.petsNote).toMatch(/husdjur är inte inräknade/i)
   })
 })

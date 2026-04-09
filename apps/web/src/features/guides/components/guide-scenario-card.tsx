@@ -39,7 +39,7 @@ export function GuideScenarioCard({ scenario }: GuideScenarioCardProps) {
           textDecoration: 'none',
         }}
       >
-        Oppna guide
+        Öppna guide
       </Link>
     </article>
   )

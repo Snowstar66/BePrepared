@@ -40,13 +40,13 @@ export function GapAnalysisRoute() {
           <h1
             id="gap-analysis-route-title"
             style={{ margin: 0, fontSize: 'clamp(2rem, 6vw, 3rem)' }}
-          >
-            Se vad som saknas i hushallets beredskap
-          </h1>
-          <p style={{ margin: 0, color: '#355263', lineHeight: 1.6 }}>
-            Har jamfor vi hushallets grundniva med det registrerade lagret och
-            markerar osakerhet nar enheterna inte racker for en exakt slutsats.
-          </p>
+        >
+          Se vad som saknas i beredskapen
+        </h1>
+        <p style={{ margin: 0, color: '#355263', lineHeight: 1.6 }}>
+          Här jämför vi hushållets grundnivå med det registrerade lagret och
+          markerar osäkerhet när underlaget inte räcker för en exakt slutsats.
+        </p>
         </div>
 
         <NeedsPrerequisiteGuard>

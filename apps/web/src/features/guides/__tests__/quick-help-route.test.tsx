@@ -11,9 +11,9 @@ describe('QuickHelpRoute', () => {
     )
 
     expect(
-      await screen.findByRole('heading', { name: /stromavbrott/i }),
+      await screen.findByRole('heading', { name: /strömavbrott/i }),
     ).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: /vattenbrist/i })).toBeInTheDocument()
-    expect(screen.getByRole('heading', { name: /allman kris/i })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: /allmän kris/i })).toBeInTheDocument()
   })
 })

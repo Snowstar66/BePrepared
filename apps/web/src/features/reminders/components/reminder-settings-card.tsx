@@ -49,11 +49,11 @@ export function ReminderSettingsCard() {
 
     setNextReminderAt(savedSettings.nextReminderAt)
     setSupportMessage(support.message)
-    setStatusMessage('Paminnelsen ar sparad och visas nu i din underhallsplan.')
+    setStatusMessage('Påminnelsen är sparad och visas nu i din underhållsplan.')
   }
 
   if (isLoading) {
-    return <p style={{ margin: 0, color: '#355263' }}>Laddar paminnelser...</p>
+    return <p style={{ margin: 0, color: '#355263' }}>Laddar påminnelser...</p>
   }
 
   return (
@@ -69,14 +69,14 @@ export function ReminderSettingsCard() {
       }}
     >
       <h2 id="reminder-settings-title" style={{ margin: 0, color: '#173042' }}>
-        Aterkommande paminnelser
+        Återkommande påminnelser
       </h2>
       <p style={{ margin: 0, color: '#355263', lineHeight: 1.6 }}>
-        Valj hur ofta du vill bli paminnd om att se over forradet. Vi visar alltid
-        nasta planerade tillfalle tydligt inne i appen.
+        Välj hur ofta du vill bli påmind om att se över förrådet. Vi visar alltid
+        nästa planerade tillfälle tydligt i appen.
       </p>
       <label style={{ display: 'grid', gap: '6px', color: '#173042' }}>
-        Paminnelserytm
+        Påminnelserytm
         <select
           value={values.cadence}
           onChange={(event) => {
@@ -99,7 +99,7 @@ export function ReminderSettingsCard() {
       </label>
       {nextReminderAt ? (
         <p style={{ margin: 0, color: '#173042', fontWeight: 600 }}>
-          Nasta planerade genomgang: {formatDateTime(nextReminderAt)}
+          Nästa planerade genomgång: {formatDateTime(nextReminderAt)}
         </p>
       ) : null}
       <p style={{ margin: 0, color: '#4b6575', lineHeight: 1.6 }}>{supportMessage}</p>
@@ -119,7 +119,7 @@ export function ReminderSettingsCard() {
             color: '#f6fbfd',
           }}
         >
-          Spara paminnelse
+          Spara påminnelse
         </button>
       </div>
       {statusMessage ? (

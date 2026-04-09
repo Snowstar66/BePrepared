@@ -50,7 +50,7 @@ export function NeedsPrerequisiteGuard({
   }, [householdProfileService, preparednessHorizonService])
 
   if (guardState.isLoading) {
-    return <p style={{ margin: 0, color: '#355263' }}>Laddar behovsvyn...</p>
+    return <p style={{ margin: 0, color: '#355263' }}>Laddar behovsöversikten...</p>
   }
 
   if (guardState.hasHouseholdProfile && guardState.hasPreparednessHorizon) {
@@ -69,12 +69,12 @@ export function NeedsPrerequisiteGuard({
       }}
     >
       <h2 id="needs-guard-title" style={{ margin: 0, color: '#173042' }}>
-        Valj planeringsperiod innan vi visar behov
+        Välj planeringsperiod innan vi visar behov
       </h2>
       <p style={{ margin: 0, color: '#355263', lineHeight: 1.6 }}>
-        Vi visar inte exakta behovstal forran hushallsprofilen och
-        beredskapshorisonten ar sparade. Det gor underlaget tydligare och mer
-        palitligt.
+        Vi visar inte exakta behovstal förrän hushållsprofilen och
+        beredskapshorisonten är sparade. Det gör underlaget tydligare och mer
+        pålitligt.
       </p>
       <Link
         to="/profil"
@@ -91,7 +91,7 @@ export function NeedsPrerequisiteGuard({
           textDecoration: 'none',
         }}
       >
-        Ga till hushallsprofilen
+        Gå till hushållsprofilen
       </Link>
     </section>
   )

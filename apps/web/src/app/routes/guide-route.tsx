@@ -40,7 +40,7 @@ export function GuideRoute() {
             id="guide-route-title"
             style={{ margin: 0, fontSize: 'clamp(2rem, 6vw, 3rem)' }}
           >
-            Lugn vagledning steg for steg
+            Lugn vägledning steg för steg
           </h1>
         </div>
 

@@ -58,7 +58,7 @@ export function HouseholdProfileForm() {
   async function onSubmit(values: HouseholdProfileFormValues) {
     const savedValues = await householdProfileService.save(values)
     reset(savedValues)
-    setSaveMessage('Hushallsprofilen ar sparad lokalt.')
+    setSaveMessage('Hushållsprofilen är sparad lokalt.')
   }
 
   return (
@@ -74,8 +74,8 @@ export function HouseholdProfileForm() {
         id="household-profile-description"
         style={{ margin: 0, color: '#355263', lineHeight: 1.6 }}
       >
-        Profilen sparas bara pa den har enheten och fungerar som grund for
-        kommande berakningar.
+        Profilen sparas bara på den här enheten och ligger till grund för
+        kommande beräkningar.
       </p>
 
       <fieldset
@@ -88,7 +88,7 @@ export function HouseholdProfileForm() {
         }}
       >
         <legend style={{ fontWeight: 600, color: '#173042', marginBottom: '4px' }}>
-          Uppgifter om hushallet
+          Uppgifter om hushållet
         </legend>
 
         <div style={fieldStyle}>
@@ -145,7 +145,7 @@ export function HouseholdProfileForm() {
             style={{ minWidth: '20px', minHeight: '20px' }}
             {...register('hasPets')}
           />
-          <label htmlFor="hasPets">Hushallet har husdjur</label>
+          <label htmlFor="hasPets">Hushållet har husdjur</label>
         </div>
       </fieldset>
 
@@ -163,7 +163,7 @@ export function HouseholdProfileForm() {
             color: '#f6fbfd',
           }}
         >
-          {isSubmitting ? 'Sparar...' : 'Spara hushallsprofil'}
+          {isSubmitting ? 'Sparar...' : 'Spara hushållsprofil'}
         </button>
 
         {saveMessage ? (

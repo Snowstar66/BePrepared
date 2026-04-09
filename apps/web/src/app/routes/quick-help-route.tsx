@@ -34,17 +34,17 @@ export function QuickHelpRoute() {
               letterSpacing: '0.08em',
             }}
           >
-            Snabbhjalp
+            Snabbhjälp
           </p>
           <h1
             id="quick-help-route-title"
             style={{ margin: 0, fontSize: 'clamp(2rem, 6vw, 3rem)' }}
           >
-            Valj den guide som passar laget bast
+            Välj den guide som passar läget bäst
           </h1>
           <p style={{ margin: 0, color: '#355263', lineHeight: 1.6 }}>
-            Har nar du snabbhjalpen direkt fran startsidan utan att forst behova
-            fylla i hushallsdata.
+            Här når du snabbhjälpen direkt från startsidan, utan att först behöva
+            fylla i hushållsdata.
           </p>
         </div>
 

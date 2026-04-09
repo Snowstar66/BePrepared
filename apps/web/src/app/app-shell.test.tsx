@@ -9,17 +9,17 @@ describe('App shell', () => {
 
       expect(
         await screen.findByRole('heading', {
-          name: /hushallets beredskap i ett lugnt overblickslage/i,
+          name: /hushållets beredskap i lugn överblick/i,
         }),
       ).toBeInTheDocument()
 
       expect(
-        await screen.findByText(/preparednessstatuscard/i),
+        await screen.findByText(/beredskapsstatus/i),
       ).toBeInTheDocument()
 
       expect(
         screen.getByRole('button', {
-          name: /hushallsprofil/i,
+          name: /hushållsprofil/i,
         }),
       ).toBeInTheDocument()
     },

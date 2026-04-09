@@ -35,17 +35,17 @@ export function InventoryQuickAddRoute() {
               letterSpacing: '0.08em',
             }}
           >
-            Forrad
+            Förråd
           </p>
           <h1
             id="inventory-quick-add-title"
             style={{ margin: 0, fontSize: 'clamp(2rem, 6vw, 3rem)' }}
           >
-            Lagg till en vara snabbt
+            Lägg till en vara snabbt
           </h1>
           <p style={{ margin: 0, color: '#355263', lineHeight: 1.6 }}>
-            Den har ytan ar gjord for snabb registrering pa mobilen utan onodig
-            administration.
+            Den här vyn är gjord för snabb registrering i mobilen, utan onödiga
+            steg.
           </p>
         </div>
 
@@ -66,7 +66,7 @@ export function InventoryQuickAddRoute() {
             textDecoration: 'none',
           }}
         >
-          Se lageroversikten
+          Se lageröversikten
         </Link>
       </section>
     </main>

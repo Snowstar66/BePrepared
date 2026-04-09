@@ -45,7 +45,7 @@ export function QuickAddItemSheet() {
       ...defaultInventoryItemFormValues,
       unit: savedItem.unit === 'st' ? '' : savedItem.unit,
     })
-    setSaveMessage(`${savedItem.name} ar lagd i ditt forrad.`)
+    setSaveMessage(`${savedItem.name} är tillagd i ditt förråd.`)
   }
 
   return (
@@ -62,11 +62,11 @@ export function QuickAddItemSheet() {
     >
       <div style={{ display: 'grid', gap: '8px' }}>
         <h2 id="quick-add-item-title" style={{ margin: 0, color: '#173042' }}>
-          QuickAddItemSheet
+          Lägg till vara
         </h2>
         <p style={{ margin: 0, color: '#355263', lineHeight: 1.6 }}>
-          Registrera en vara med sa fa falt som mojligt. Namn, kategori och antal
-          ar nog for att komma vidare.
+          Registrera en vara med så få fält som möjligt. Namn, kategori och antal
+          räcker för att komma igång.
         </p>
       </div>
 
@@ -78,7 +78,7 @@ export function QuickAddItemSheet() {
         style={{ display: 'grid', gap: '16px' }}
       >
         <div style={fieldStyle}>
-          <label htmlFor="name">Namn pa vara</label>
+          <label htmlFor="name">Varans namn</label>
           <input id="name" style={inputStyle} {...register('name')} />
           {errors.name ? (
             <p role="alert" style={{ margin: 0, color: '#9b1c1c' }}>
@@ -91,7 +91,7 @@ export function QuickAddItemSheet() {
           <label htmlFor="category">Kategori</label>
           <select id="category" style={inputStyle} defaultValue="" {...register('category')}>
             <option value="" disabled>
-              Valj kategori
+              Välj kategori
             </option>
             {inventoryCategoryOptions.map((option) => (
               <option key={option.value} value={option.value}>
@@ -142,7 +142,7 @@ export function QuickAddItemSheet() {
           </div>
 
           <div style={fieldStyle}>
-            <label htmlFor="bestBefore">Bast fore (valfritt)</label>
+            <label htmlFor="bestBefore">Bäst före (valfritt)</label>
             <input
               id="bestBefore"
               type="date"
@@ -166,7 +166,7 @@ export function QuickAddItemSheet() {
               color: '#f6fbfd',
             }}
           >
-            {isSubmitting ? 'Sparar...' : 'Lagg till vara'}
+            {isSubmitting ? 'Sparar...' : 'Lägg till vara'}
           </button>
 
           {saveMessage ? (

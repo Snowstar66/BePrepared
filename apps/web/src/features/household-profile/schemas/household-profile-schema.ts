@@ -5,7 +5,7 @@ const requiredPositiveInteger = z
   .trim()
   .min(1, 'Ange antal vuxna.')
   .refine((value) => Number.isInteger(Number(value)) && Number(value) >= 1, {
-    message: 'Antal vuxna maste vara minst 1.',
+    message: 'Antal vuxna måste vara minst 1.',
   })
 
 const optionalNonNegativeInteger = z
@@ -16,7 +16,7 @@ const optionalNonNegativeInteger = z
       value === '' ||
       (Number.isInteger(Number(value)) && Number(value) >= 0),
     {
-      message: 'Antal barn maste vara 0 eller hoger.',
+      message: 'Antal barn måste vara 0 eller högre.',
     },
   )
 

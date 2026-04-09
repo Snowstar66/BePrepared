@@ -41,11 +41,11 @@ export function NeedsRoute() {
             id="needs-route-title"
             style={{ margin: 0, fontSize: 'clamp(2rem, 6vw, 3rem)' }}
           >
-            Behovsvyn forbereds
+            Se hushållets grundbehov
           </h1>
           <p style={{ margin: 0, color: '#355263', lineHeight: 1.6 }}>
-            Har ser du hushallets grundniva for vatten och mat nar profilen och
-            planeringsperioden ar sparade.
+            Här ser du hushållets grundnivå för vatten och mat när profil och
+            planeringsperiod är sparade.
           </p>
         </div>
 

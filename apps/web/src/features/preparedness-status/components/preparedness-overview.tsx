@@ -38,7 +38,7 @@ export function PreparednessOverview() {
   }, [preparednessStatusService])
 
   if (isLoading) {
-    return <p style={{ margin: 0, color: '#355263' }}>Laddar hushallets status...</p>
+    return <p style={{ margin: 0, color: '#355263' }}>Laddar hushållets status...</p>
   }
 
   if (overview === null) {

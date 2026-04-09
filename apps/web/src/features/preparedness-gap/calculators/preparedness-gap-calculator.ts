@@ -2,7 +2,7 @@ import type { InventoryItemRecord } from '../../inventory/schemas/inventory-item
 import type { BaselinePreparednessNeeds } from '../../preparedness-needs/calculators/baseline-needs-calculator'
 
 const LITER_UNITS = new Set(['l', 'liter', 'liters', 'ltr'])
-const MEAL_UNITS = new Set(['maltid', 'maltider', 'portion', 'portioner'])
+const MEAL_UNITS = new Set(['måltid', 'måltider', 'maltid', 'maltider', 'portion', 'portioner'])
 
 export type PreparednessGapStatus = 'covered' | 'partial' | 'missing' | 'uncertain'
 
@@ -64,20 +64,20 @@ function buildWaterGapAnalysis(
       key: 'water',
       label: 'Vatten',
       status: 'uncertain',
-      statusLabel: 'Osaker jamforelse',
-      needLabel: `${needs.totalWaterLiters} liter behov for ${needs.horizonLabel.toLowerCase()}`,
+      statusLabel: 'Osäker jämförelse',
+      needLabel: `${needs.totalWaterLiters} liter behov för ${needs.horizonLabel.toLowerCase()}`,
       inventoryLabel: `${formatQuantity(measuredLiters)} liter registrerat + ${uncertainWaterItems} ${pluralize(
         uncertainWaterItems,
         'vattenpost',
         'vattenposter',
-      )} med osaker enhet`,
+      )} med osäker enhet`,
       gapLabel:
         exactGap === 0
-          ? 'Det registrerade vattnet kan redan racka, men osakra enheter hindrar en exakt jamforelse.'
-          : `Minst ${formatQuantity(exactGap)} liter saknas, men osakra enheter gor totalen osaker.`,
+          ? 'Det registrerade vattnet kan redan räcka, men osäkra enheter hindrar en exakt jämförelse.'
+          : `Minst ${formatQuantity(exactGap)} liter saknas, men osäkra enheter gör totalen osäker.`,
       notes: [
-        'Vi raknar bara vattenposter exakt nar enheten kan tolkas som liter.',
-        'Poster med enheter som flaska, dunk eller liknande markeras som osakra tills de preciseras.',
+        'Vi räknar bara vattenposter exakt när enheten kan tolkas som liter.',
+        'Poster med enheter som flaska, dunk eller liknande markeras som osäkra tills de preciseras.',
       ],
     }
   }
@@ -87,11 +87,11 @@ function buildWaterGapAnalysis(
       key: 'water',
       label: 'Vatten',
       status: 'missing',
-      statusLabel: 'Inget registrerat an',
-      needLabel: `${needs.totalWaterLiters} liter behov for ${needs.horizonLabel.toLowerCase()}`,
+      statusLabel: 'Inget registrerat ännu',
+      needLabel: `${needs.totalWaterLiters} liter behov för ${needs.horizonLabel.toLowerCase()}`,
       inventoryLabel: '0 liter registrerat',
-      gapLabel: `${needs.totalWaterLiters} liter saknas for att na grundnivan.`,
-      notes: ['Borja med att registrera vatten i liter for att fa en tydlig gapbild.'],
+      gapLabel: `${needs.totalWaterLiters} liter saknas för att nå grundnivån.`,
+      notes: ['Börja med att registrera vatten i liter för att få en tydlig bild av luckan.'],
     }
   }
 
@@ -100,11 +100,11 @@ function buildWaterGapAnalysis(
       key: 'water',
       label: 'Vatten',
       status: 'covered',
-      statusLabel: 'Grundnivan ar tackt',
-      needLabel: `${needs.totalWaterLiters} liter behov for ${needs.horizonLabel.toLowerCase()}`,
+      statusLabel: 'Grundnivån är täckt',
+      needLabel: `${needs.totalWaterLiters} liter behov för ${needs.horizonLabel.toLowerCase()}`,
       inventoryLabel: `${formatQuantity(measuredLiters)} liter registrerat`,
-      gapLabel: 'Det registrerade vattnet motsvarar eller overstiger grundnivan.',
-      notes: ['Jamforelsen ar exakt eftersom alla registrerade vattenposter ar angivna i liter.'],
+      gapLabel: 'Det registrerade vattnet motsvarar eller överstiger grundnivån.',
+      notes: ['Jämförelsen är exakt eftersom alla registrerade vattenposter är angivna i liter.'],
     }
   }
 
@@ -112,11 +112,11 @@ function buildWaterGapAnalysis(
     key: 'water',
     label: 'Vatten',
     status: 'partial',
-    statusLabel: 'Delvis tackt',
-    needLabel: `${needs.totalWaterLiters} liter behov for ${needs.horizonLabel.toLowerCase()}`,
+    statusLabel: 'Delvis täckt',
+    needLabel: `${needs.totalWaterLiters} liter behov för ${needs.horizonLabel.toLowerCase()}`,
     inventoryLabel: `${formatQuantity(measuredLiters)} liter registrerat`,
-    gapLabel: `${formatQuantity(exactGap)} liter saknas for att na grundnivan.`,
-    notes: ['Jamforelsen ar exakt eftersom alla registrerade vattenposter ar angivna i liter.'],
+    gapLabel: `${formatQuantity(exactGap)} liter saknas för att nå grundnivån.`,
+    notes: ['Jämförelsen är exakt eftersom alla registrerade vattenposter är angivna i liter.'],
   }
 }
 
@@ -140,27 +140,27 @@ function buildFoodGapAnalysis(
       key: 'food',
       label: 'Mat',
       status: 'uncertain',
-      statusLabel: 'Osaker jamforelse',
-      needLabel: `${needs.totalMeals} maltider behov for ${needs.horizonLabel.toLowerCase()}`,
+      statusLabel: 'Osäker jämförelse',
+      needLabel: `${needs.totalMeals} måltider behov för ${needs.horizonLabel.toLowerCase()}`,
       inventoryLabel:
         measuredMeals > 0
-          ? `${formatQuantity(measuredMeals)} maltider registrerat + ${uncertainFoodItems} ${pluralize(
+          ? `${formatQuantity(measuredMeals)} måltider registrerat + ${uncertainFoodItems} ${pluralize(
               uncertainFoodItems,
               'matpost',
               'matposter',
-            )} med osaker omsattning`
+            )} med osäker omräkning`
           : `${uncertainFoodItems} ${pluralize(
               uncertainFoodItems,
               'matpost',
               'matposter',
-            )} registrerade, men de ar inte omsatta till maltider`,
+            )} registrerade, men de är inte omräknade till måltider`,
       gapLabel:
         exactGap === 0
-          ? 'Det registrerade matlagret kan redan racka, men flera poster saknar en enhet som gar att oversatta exakt.'
-          : `Minst ${formatQuantity(exactGap)} maltider saknas, men flera poster gar inte att omsatta exakt.`,
+          ? 'Det registrerade matlagret kan redan räcka, men flera poster saknar en enhet som går att översätta exakt.'
+          : `Minst ${formatQuantity(exactGap)} måltider saknas, men flera poster går inte att översätta exakt.`,
       notes: [
-        'Vi raknar bara matposter exakt nar enheten uttryckligen motsvarar maltider eller portioner.',
-        'Poster i styck, paket eller fritext visas som osakerhet i stallet for falsk precision.',
+        'Vi räknar bara matposter exakt när enheten uttryckligen motsvarar måltider eller portioner.',
+        'Poster i styck, paket eller fritext visas som osäkerhet i stället för falsk precision.',
       ],
     }
   }
@@ -170,11 +170,11 @@ function buildFoodGapAnalysis(
       key: 'food',
       label: 'Mat',
       status: 'missing',
-      statusLabel: 'Inget registrerat an',
-      needLabel: `${needs.totalMeals} maltider behov for ${needs.horizonLabel.toLowerCase()}`,
-      inventoryLabel: '0 maltider registrerat',
-      gapLabel: `${needs.totalMeals} maltider saknas for att na grundnivan.`,
-      notes: ['Registrera mat i maltider eller portioner om du vill kunna folja gapet exakt.'],
+      statusLabel: 'Inget registrerat ännu',
+      needLabel: `${needs.totalMeals} måltider behov för ${needs.horizonLabel.toLowerCase()}`,
+      inventoryLabel: '0 måltider registrerat',
+      gapLabel: `${needs.totalMeals} måltider saknas för att nå grundnivån.`,
+      notes: ['Registrera mat i måltider eller portioner om du vill kunna följa luckan exakt.'],
     }
   }
 
@@ -183,11 +183,11 @@ function buildFoodGapAnalysis(
       key: 'food',
       label: 'Mat',
       status: 'covered',
-      statusLabel: 'Grundnivan ar tackt',
-      needLabel: `${needs.totalMeals} maltider behov for ${needs.horizonLabel.toLowerCase()}`,
-      inventoryLabel: `${formatQuantity(measuredMeals)} maltider registrerat`,
-      gapLabel: 'Det registrerade matlagret motsvarar eller overstiger grundnivan.',
-      notes: ['Jamforelsen ar exakt eftersom alla registrerade matposter ar angivna i maltider eller portioner.'],
+      statusLabel: 'Grundnivån är täckt',
+      needLabel: `${needs.totalMeals} måltider behov för ${needs.horizonLabel.toLowerCase()}`,
+      inventoryLabel: `${formatQuantity(measuredMeals)} måltider registrerat`,
+      gapLabel: 'Det registrerade matlagret motsvarar eller överstiger grundnivån.',
+      notes: ['Jämförelsen är exakt eftersom alla registrerade matposter är angivna i måltider eller portioner.'],
     }
   }
 
@@ -195,11 +195,11 @@ function buildFoodGapAnalysis(
     key: 'food',
     label: 'Mat',
     status: 'partial',
-    statusLabel: 'Delvis tackt',
-    needLabel: `${needs.totalMeals} maltider behov for ${needs.horizonLabel.toLowerCase()}`,
-    inventoryLabel: `${formatQuantity(measuredMeals)} maltider registrerat`,
-    gapLabel: `${formatQuantity(exactGap)} maltider saknas for att na grundnivan.`,
-    notes: ['Jamforelsen ar exakt eftersom alla registrerade matposter ar angivna i maltider eller portioner.'],
+    statusLabel: 'Delvis täckt',
+    needLabel: `${needs.totalMeals} måltider behov för ${needs.horizonLabel.toLowerCase()}`,
+    inventoryLabel: `${formatQuantity(measuredMeals)} måltider registrerat`,
+    gapLabel: `${formatQuantity(exactGap)} måltider saknas för att nå grundnivån.`,
+    notes: ['Jämförelsen är exakt eftersom alla registrerade matposter är angivna i måltider eller portioner.'],
   }
 }
 
@@ -214,8 +214,8 @@ export function calculatePreparednessGapAnalysis(
       buildFoodGapAnalysis(needs, items),
     ],
     summary:
-      'Gap-analysen jamfor hushallets planeringsniva med det registrerade lagret och markerar osakerhet nar datan inte racker for exakta slutsatser.',
+      'Gap-analysen jämför hushållets planeringsnivå med det registrerade lagret och markerar osäkerhet när datan inte räcker för exakta slutsatser.',
     nextStep:
-      'Anvand gapen som underlag for att komplettera lagret eller precisera poster med otydliga enheter.',
+      'Använd luckorna som underlag för att komplettera lagret eller förtydliga poster med otydliga enheter.',
   }
 }

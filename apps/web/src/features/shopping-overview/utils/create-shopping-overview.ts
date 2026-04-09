@@ -15,7 +15,7 @@ function getPriorityForCategory(
   if (key === 'water') {
     return {
       priority: 'high' as const,
-      priorityLabel: 'Hog prioritet',
+      priorityLabel: 'Hög prioritet',
     }
   }
 
@@ -31,15 +31,15 @@ function getRecommendationForCategory(
 ) {
   if (status === 'uncertain') {
     return key === 'water'
-      ? 'Forbattra enheterna for vattenposter sa att oversikten blir mer exakt innan du handlar mer.'
-      : 'Forbattra enheterna for matposter sa att oversikten blir mer exakt innan du handlar mer.'
+      ? 'Förtydliga enheterna för vattenposter så att översikten blir mer exakt innan du handlar mer.'
+      : 'Förtydliga enheterna för matposter så att översikten blir mer exakt innan du handlar mer.'
   }
 
   if (key === 'water') {
-    return 'Borja med att fylla vattengapet eftersom det ar grundlaggande for hushallets planeringsniva.'
+    return 'Börja med att fylla vattenluckan eftersom den är grundläggande för hushållets planeringsnivå.'
   }
 
-  return 'Komplettera matberedskapen med enkla maltider eller portioner som ar latt att folja upp.'
+  return 'Komplettera matberedskapen med enkla måltider eller portioner som är lätta att följa upp.'
 }
 
 export function createShoppingOverviewEntries(

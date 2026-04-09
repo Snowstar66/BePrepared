@@ -15,9 +15,9 @@ describe('GuideRoute', () => {
       )
 
       expect(
-        await screen.findByRole('heading', { name: /guide vid stromavbrott/i }),
+        await screen.findByRole('heading', { name: /guide vid strömavbrott/i }),
       ).toBeInTheDocument()
-      expect(screen.getByText(/kalla: msb/i)).toBeInTheDocument()
+      expect(screen.getByText(/källa: msb/i)).toBeInTheDocument()
       expect(screen.getByText(/prioriterade steg/i)).toBeInTheDocument()
     },
     10000,

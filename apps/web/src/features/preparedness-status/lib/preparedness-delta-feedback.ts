@@ -2,7 +2,7 @@ import type { InventoryItemRecord } from '../../inventory/schemas/inventory-item
 
 const DELTA_FEEDBACK_STORAGE_KEY = 'bePrepared.preparednessDeltaFeedback'
 const LITER_UNITS = new Set(['l', 'liter', 'liters', 'ltr'])
-const MEAL_UNITS = new Set(['maltid', 'maltider', 'portion', 'portioner'])
+const MEAL_UNITS = new Set(['måltid', 'måltider', 'maltid', 'maltider', 'portion', 'portioner'])
 
 export interface PreparednessDeltaFeedbackPayload {
   title: string
@@ -31,8 +31,8 @@ function getExactCategoryDescriptor(item: InventoryItemRecord) {
 
   if (item.category === 'food' && MEAL_UNITS.has(normalizeUnit(item.unit))) {
     return {
-      noun: 'matgapet',
-      unit: 'maltider',
+      noun: 'matluckan',
+      unit: 'måltider',
     }
   }
 
@@ -68,14 +68,14 @@ export function recordFeedbackForAddedItem(item: InventoryItemRecord) {
   if (exactDescriptor !== null) {
     savePreparednessDeltaFeedback({
       title: 'Beredskapen har uppdaterats',
-      body: `${formatQuantity(item.quantity)} ${exactDescriptor.unit} lades till och ${exactDescriptor.noun} raknades om direkt.`,
+      body: `${formatQuantity(item.quantity)} ${exactDescriptor.unit} lades till och ${exactDescriptor.noun} räknades om direkt.`,
     })
     return
   }
 
   savePreparednessDeltaFeedback({
     title: 'Lagret har uppdaterats',
-    body: `${item.name} lades till i kategorin ${item.category}. Statusen ar omraknad, men enheten ger inte en exakt delta for gapet.`,
+    body: `${item.name} lades till i kategorin ${item.category}. Statusen har räknats om, men enheten ger inte ett exakt mått på förändringen.`,
   })
 }
 
@@ -95,16 +95,16 @@ export function recordFeedbackForUpdatedItem(
 
     if (delta > 0) {
       savePreparednessDeltaFeedback({
-        title: 'Beredskapen har forstarkts',
-        body: `${formatQuantity(delta)} ${nextDescriptor.unit} lades till i uppdateringen och ${nextDescriptor.noun} raknades om.`,
+        title: 'Beredskapen har stärkts',
+        body: `${formatQuantity(delta)} ${nextDescriptor.unit} lades till i uppdateringen och ${nextDescriptor.noun} räknades om.`,
       })
       return
     }
 
     if (delta < 0) {
       savePreparednessDeltaFeedback({
-        title: 'Beredskapen har andrats',
-        body: `${formatQuantity(Math.abs(delta))} ${nextDescriptor.unit} togs bort i uppdateringen och ${nextDescriptor.noun} raknades om.`,
+        title: 'Beredskapen har förändrats',
+        body: `${formatQuantity(Math.abs(delta))} ${nextDescriptor.unit} togs bort i uppdateringen och ${nextDescriptor.noun} räknades om.`,
       })
       return
     }
@@ -112,7 +112,7 @@ export function recordFeedbackForUpdatedItem(
 
   savePreparednessDeltaFeedback({
     title: 'Lagret har uppdaterats',
-    body: `${nextItem.name} andrades och statusen ar omraknad. Enheten eller kategorin gor att effekten visas utan falsk precision.`,
+    body: `${nextItem.name} ändrades och statusen räknades om. Effekten visas utan falsk precision eftersom enhet eller kategori inte går att tolka exakt.`,
   })
 }
 
@@ -121,14 +121,14 @@ export function recordFeedbackForDeletedItem(item: InventoryItemRecord) {
 
   if (exactDescriptor !== null) {
     savePreparednessDeltaFeedback({
-      title: 'Beredskapen har andrats',
-      body: `${formatQuantity(item.quantity)} ${exactDescriptor.unit} togs bort och ${exactDescriptor.noun} kan nu vara storre an tidigare.`,
+      title: 'Beredskapen har förändrats',
+      body: `${formatQuantity(item.quantity)} ${exactDescriptor.unit} togs bort och ${exactDescriptor.noun} kan nu vara större än tidigare.`,
     })
     return
   }
 
   savePreparednessDeltaFeedback({
     title: 'Lagret har uppdaterats',
-    body: `${item.name} togs bort. Statusen ar omraknad, men effekten visas utan exakt delta eftersom enheten inte gar att tolka entydigt.`,
+    body: `${item.name} togs bort. Statusen räknades om, men effekten visas utan exakt förändring eftersom enheten inte går att tolka entydigt.`,
   })
 }

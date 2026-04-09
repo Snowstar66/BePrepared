@@ -4,12 +4,12 @@ export const preparednessHorizonOptions = [
   {
     value: '72-hours',
     label: '72 timmar',
-    description: 'Bra nar du vill planera for den kortare grundnivan.',
+    description: 'Bra när du vill planera för den kortare grundnivån.',
   },
   {
     value: '7-days',
     label: '7 dagar',
-    description: 'Bra nar du vill planera for en langre och mer robust period.',
+    description: 'Bra när du vill planera för en längre och mer robust period.',
   },
 ] as const
 
@@ -36,11 +36,11 @@ export const preparednessHorizonFormSchema = z.object({
   horizon: z
     .string()
     .trim()
-    .min(1, 'Valj en beredskapshorisont.')
+    .min(1, 'Välj en beredskapshorisont.')
     .refine(
       (value): value is PreparednessHorizon =>
         preparednessHorizonOptions.some((option) => option.value === value),
-      'Valj en giltig beredskapshorisont.',
+      'Välj en giltig beredskapshorisont.',
     ),
 })
 

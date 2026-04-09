@@ -110,7 +110,7 @@ export function EditInventoryItemForm() {
     })
     setLoadedItem(updatedItem)
     setDeleteMessage('')
-    setSaveMessage(`${updatedItem.name} ar uppdaterad i ditt forrad.`)
+    setSaveMessage(`${updatedItem.name} är uppdaterad i ditt förråd.`)
   }
 
   async function handleDelete() {
@@ -122,7 +122,7 @@ export function EditInventoryItemForm() {
       recordFeedbackForDeletedItem(loadedItem)
     }
     await inventoryService.deleteItem(itemId)
-    setDeleteMessage('Varan ar borttagen fran ditt forrad.')
+    setDeleteMessage('Varan är borttagen från ditt förråd.')
     setTimeout(() => {
       void navigate('/forrad')
     }, 0)
@@ -145,8 +145,8 @@ export function EditInventoryItemForm() {
       >
         <h2 style={{ margin: 0, color: '#173042' }}>Varan kunde inte hittas</h2>
         <p style={{ margin: 0, color: '#355263', lineHeight: 1.6 }}>
-          Den kan redan vara borttagen. Ga tillbaka till lageroversikten och valj en
-          annan artikel.
+          Den kan redan ha tagits bort. Gå tillbaka till lageröversikten och välj
+          en annan artikel.
         </p>
         <Link
           to="/forrad"
@@ -163,7 +163,7 @@ export function EditInventoryItemForm() {
             textDecoration: 'none',
           }}
         >
-          Tillbaka till forradet
+          Tillbaka till förrådet
         </Link>
       </section>
     )
@@ -179,7 +179,7 @@ export function EditInventoryItemForm() {
         style={{ display: 'grid', gap: '16px' }}
       >
         <div style={fieldStyle}>
-          <label htmlFor="name">Namn pa vara</label>
+          <label htmlFor="name">Varans namn</label>
           <input id="name" style={inputStyle} {...register('name')} />
           {errors.name ? (
             <p role="alert" style={{ margin: 0, color: '#9b1c1c' }}>
@@ -235,7 +235,7 @@ export function EditInventoryItemForm() {
           </div>
 
           <div style={fieldStyle}>
-            <label htmlFor="bestBefore">Bast fore (valfritt)</label>
+            <label htmlFor="bestBefore">Bäst före (valfritt)</label>
             <input
               id="bestBefore"
               type="date"
@@ -259,7 +259,7 @@ export function EditInventoryItemForm() {
               color: '#f6fbfd',
             }}
           >
-            {isSubmitting ? 'Sparar...' : 'Spara andringar'}
+            {isSubmitting ? 'Sparar...' : 'Spara ändringar'}
           </button>
 
           {saveMessage ? (
@@ -284,8 +284,8 @@ export function EditInventoryItemForm() {
           Ta bort varan
         </h2>
         <p style={{ margin: 0, color: '#355263', lineHeight: 1.6 }}>
-          Den har handlingen ar destruktiv. Bekrafta att du verkligen vill ta bort
-          varan innan vi gor andringen.
+          Det här är en permanent ändring. Bekräfta att du verkligen vill ta bort
+          varan innan vi genomför den.
         </p>
         <label
           htmlFor="confirm-delete"
@@ -301,7 +301,7 @@ export function EditInventoryItemForm() {
             }}
             style={{ minWidth: '20px', minHeight: '20px' }}
           />
-          <span>Jag vill ta bort den har varan fran forradet</span>
+          <span>Jag vill ta bort den här varan från förrådet</span>
         </label>
         <button
           type="button"

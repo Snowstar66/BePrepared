@@ -32,7 +32,7 @@ export function QuickHelpIndex() {
   }, [guideCatalogService])
 
   if (isLoading) {
-    return <p style={{ margin: 0, color: '#355263' }}>Laddar snabbhjalp...</p>
+    return <p style={{ margin: 0, color: '#355263' }}>Laddar snabbhjälp...</p>
   }
 
   return (

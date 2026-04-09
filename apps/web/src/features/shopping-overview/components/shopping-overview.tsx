@@ -41,11 +41,11 @@ export function ShoppingOverview() {
     const snapshot = await shoppingOverviewService.saveOverview(entries)
 
     setSavedAt(snapshot.updatedAt)
-    setSaveMessage('Inkopsoversikten ar sparad lokalt for fortsatt anvandning.')
+    setSaveMessage('Inköpsöversikten är sparad lokalt för fortsatt användning.')
   }
 
   if (isLoading) {
-    return <p style={{ margin: 0, color: '#355263' }}>Bygger inkopsoversikten...</p>
+    return <p style={{ margin: 0, color: '#355263' }}>Bygger inköpsöversikten...</p>
   }
 
   return (
@@ -62,11 +62,11 @@ export function ShoppingOverview() {
         }}
       >
         <h2 id="shopping-overview-title" style={{ margin: 0, color: '#173042' }}>
-          Inkopsoversikt
+          Inköpsöversikt
         </h2>
         <p style={{ margin: 0, color: '#355263', lineHeight: 1.6 }}>
-          Oversikten bygger pa hushallets aktuella gap och prioriterar det som gor
-          mest nytta just nu.
+          Översikten bygger på hushållets aktuella luckor och prioriterar det som
+          gör mest nytta just nu.
         </p>
         {savedAt ? (
           <p style={{ margin: 0, color: '#4b6575' }}>
@@ -74,8 +74,8 @@ export function ShoppingOverview() {
           </p>
         ) : (
           <p style={{ margin: 0, color: '#4b6575' }}>
-            Ingen sparad oversikt an. Spara den lokalt nar du vill kunna aterkomma
-            till samma sammanstallning offline.
+            Ingen sparad översikt ännu. Spara den lokalt om du vill kunna återgå
+            till samma sammanställning offline.
           </p>
         )}
       </section>
@@ -92,13 +92,13 @@ export function ShoppingOverview() {
           }}
         >
           <h2 id="resolved-shopping-title" style={{ margin: 0, color: '#173042' }}>
-            Det som inte langre saknas
+            Det som inte längre saknas
           </h2>
           <ul style={{ margin: 0, paddingLeft: '20px', color: '#355263', lineHeight: 1.6 }}>
             {resolvedEntries.map((entry) => (
               <li key={entry.key}>
-                {entry.label} ser inte langre ut att vara ett aktivt gap i den senaste
-                jamforelsen.
+                {entry.label} verkar inte längre vara en aktiv lucka i den senaste
+                jämförelsen.
               </li>
             ))}
           </ul>
@@ -117,12 +117,12 @@ export function ShoppingOverview() {
           }}
         >
           <h2 id="shopping-complete-title" style={{ margin: 0, color: '#173042' }}>
-            Inga aktuella inkop ar prioriterade just nu
+            Inga inköp är prioriterade just nu
           </h2>
           <p style={{ margin: 0, color: '#355263', lineHeight: 1.6 }}>
-            De kategorier som vi kan jamfora exakt ser ut att ligga pa eller over
-            grundnivan. Fortsatt hall lagret uppdaterat och anvand gap-analysen om
-            forutsattningarna andras.
+            De kategorier som går att jämföra exakt verkar ligga på eller över
+            grundnivån. Fortsätt hålla lagret uppdaterat och använd gap-analysen
+            om förutsättningarna ändras.
           </p>
           <Link
             to="/gap-analys"
@@ -195,7 +195,7 @@ export function ShoppingOverview() {
             }}
           >
             <h2 id="shopping-actions-title" style={{ margin: 0, color: '#173042' }}>
-              Nasta steg
+              Nästa steg
             </h2>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
               <button
@@ -213,7 +213,7 @@ export function ShoppingOverview() {
                   color: '#f6fbfd',
                 }}
               >
-                Spara inkopsoversikt
+                Spara inköpsöversikt
               </button>
               <Link
                 to="/forrad/ny"
@@ -230,7 +230,7 @@ export function ShoppingOverview() {
                   textDecoration: 'none',
                 }}
               >
-                Lagg till vara
+                Lägg till vara
               </Link>
             </div>
             {saveMessage ? (

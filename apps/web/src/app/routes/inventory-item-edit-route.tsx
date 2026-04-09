@@ -35,7 +35,7 @@ export function InventoryItemEditRoute() {
               letterSpacing: '0.08em',
             }}
           >
-            Forrad
+            Förråd
           </p>
           <h1
             id="inventory-edit-title"
@@ -44,8 +44,8 @@ export function InventoryItemEditRoute() {
             Redigera lagerartikel
           </h1>
           <p style={{ margin: 0, color: '#355263', lineHeight: 1.6 }}>
-            Korrigera varan sa att lageroversikten fortsatter vara palitlig och
-            enkel att lita pa.
+            Uppdatera artikeln så att lageröversikten fortsätter vara tydlig och
+            pålitlig.
           </p>
         </div>
 
@@ -67,7 +67,7 @@ export function InventoryItemEditRoute() {
             textDecoration: 'none',
           }}
         >
-          Tillbaka till forradet
+          Tillbaka till förrådet
         </Link>
       </section>
     </main>

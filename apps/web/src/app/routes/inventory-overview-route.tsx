@@ -35,7 +35,7 @@ export function InventoryOverviewRoute() {
               letterSpacing: '0.08em',
             }}
           >
-            Forrad
+            Förråd
           </p>
           <h1
             id="inventory-overview-title"
@@ -44,8 +44,8 @@ export function InventoryOverviewRoute() {
             Se ditt lager i tydliga kategorier
           </h1>
           <p style={{ margin: 0, color: '#355263', lineHeight: 1.6 }}>
-            Har kan du skanna vad hushallet redan har hemma och vilken kategori som
-            behover lite mer uppmarksamhet.
+            Här får du en tydlig överblick över vad hushållet redan har hemma
+            och vilka kategorier som behöver mest uppmärksamhet.
           </p>
         </div>
 
@@ -67,7 +67,7 @@ export function InventoryOverviewRoute() {
               textDecoration: 'none',
             }}
           >
-            Lagg till vara
+            Lägg till vara
           </Link>
           <Link
             to="/behov"
@@ -85,7 +85,7 @@ export function InventoryOverviewRoute() {
               textDecoration: 'none',
             }}
           >
-            Tillbaka till behovsvyn
+            Tillbaka till behovsöversikten
           </Link>
         </div>
       </section>

@@ -36,7 +36,7 @@ export function PreparednessHorizonSelector({
     })
 
     if (!parsedValues.success) {
-      setErrorMessage(parsedValues.error.issues[0]?.message ?? 'Valj en period.')
+      setErrorMessage(parsedValues.error.issues[0]?.message ?? 'Välj en period.')
       return
     }
 
@@ -45,7 +45,7 @@ export function PreparednessHorizonSelector({
 
     try {
       const savedRecord = await preparednessHorizonService.save(parsedValues.data)
-      setSaveMessage(`Planeringsperioden ${savedRecord.label.toLowerCase()} ar sparad lokalt.`)
+      setSaveMessage(`Planeringsperioden ${savedRecord.label.toLowerCase()} är sparad lokalt.`)
       onSaved(savedRecord)
     } finally {
       setIsSubmitting(false)
@@ -64,7 +64,7 @@ export function PreparednessHorizonSelector({
         }}
       >
         <legend style={{ fontWeight: 600, color: '#173042', marginBottom: '4px' }}>
-          Valj beredskapshorisont
+          Välj beredskapshorisont
         </legend>
 
         {preparednessHorizonOptions.map((option) => (

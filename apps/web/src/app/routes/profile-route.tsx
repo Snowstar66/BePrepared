@@ -62,13 +62,13 @@ export function ProfileRoute() {
             letterSpacing: '0.08em',
           }}
         >
-          Hushallsprofil
+          Hushållsprofil
         </p>
         <h1
           id="profile-route-title"
           style={{ marginBottom: '12px', fontSize: 'clamp(2rem, 6vw, 3rem)' }}
         >
-          Registrera ditt hushall
+          Registrera ditt hushåll
         </h1>
         <p
           style={{
@@ -78,8 +78,8 @@ export function ProfileRoute() {
             lineHeight: 1.6,
           }}
         >
-          Vi borjar enkelt med antal vuxna och valfria uppgifter om barn och
-          husdjur.
+          Börja med det viktigaste: antal vuxna och, om du vill, uppgifter om
+          barn och husdjur.
         </p>
         <HouseholdProfileForm />
         <PreparednessHorizonSummary
@@ -108,7 +108,7 @@ export function ProfileRoute() {
             textDecoration: 'none',
           }}
         >
-          Fortsatt till behovsvyn
+          Fortsätt till behovsöversikten
         </Link>
       </section>
     </main>

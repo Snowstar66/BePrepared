@@ -47,7 +47,7 @@ export function PreparednessStatusCard({
         }}
       >
         <h2 id="preparedness-status-title" style={{ margin: 0, color: '#173042' }}>
-          PreparednessStatusCard
+          Beredskapsstatus
         </h2>
         <span
           style={{

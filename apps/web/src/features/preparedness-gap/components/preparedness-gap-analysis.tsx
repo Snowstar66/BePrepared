@@ -66,7 +66,7 @@ export function PreparednessGapAnalysis() {
   }, [preparednessGapService])
 
   if (isLoading) {
-    return <p style={{ margin: 0, color: '#355263' }}>Jamfor behov mot lagret...</p>
+    return <p style={{ margin: 0, color: '#355263' }}>Jämför behov mot lagret...</p>
   }
 
   if (analysis === null) {
@@ -77,7 +77,7 @@ export function PreparednessGapAnalysis() {
     <section style={{ display: 'grid', gap: '16px' }}>
       <section aria-labelledby="gap-summary-title" style={sectionCardStyle}>
         <h2 id="gap-summary-title" style={{ margin: 0, color: '#173042' }}>
-          Gap-analys for {analysis.horizonLabel.toLowerCase()}
+          Gap-analys för {analysis.horizonLabel.toLowerCase()}
         </h2>
         <p style={{ margin: 0, color: '#355263', lineHeight: 1.6 }}>
           {analysis.summary}
@@ -169,7 +169,7 @@ export function PreparednessGapAnalysis() {
         }}
       >
         <h2 id="gap-next-step-title" style={{ margin: 0, color: '#173042' }}>
-          Nasta steg
+          Nästa steg
         </h2>
         <p style={{ margin: 0, color: '#355263', lineHeight: 1.6 }}>
           {analysis.nextStep}
@@ -190,7 +190,7 @@ export function PreparednessGapAnalysis() {
               textDecoration: 'none',
             }}
           >
-            Se forradet
+            Se förrådet
           </Link>
           <Link
             to="/forrad/ny"
@@ -207,7 +207,7 @@ export function PreparednessGapAnalysis() {
               textDecoration: 'none',
             }}
           >
-            Lagg till vara
+            Lägg till vara
           </Link>
           <Link
             to="/inkopsoversikt"
@@ -224,7 +224,7 @@ export function PreparednessGapAnalysis() {
               textDecoration: 'none',
             }}
           >
-            Se inkopsoversikt
+            Se inköpsöversikt
           </Link>
         </div>
       </section>

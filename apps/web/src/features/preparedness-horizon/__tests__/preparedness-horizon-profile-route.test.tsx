@@ -31,7 +31,7 @@ describe('Preparedness horizon on the profile route', () => {
       })
 
       expect(
-        await screen.findByText(/planeringsperioden 72 timmar ar sparad lokalt/i),
+        await screen.findByText(/planeringsperioden 72 timmar är sparad lokalt/i),
       ).toBeInTheDocument()
 
       await waitFor(() => {

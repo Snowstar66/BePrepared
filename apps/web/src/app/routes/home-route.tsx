@@ -40,7 +40,7 @@ export function HomeRoute() {
           id="app-shell-title"
           style={{ marginBottom: '12px', fontSize: 'clamp(2rem, 6vw, 3rem)' }}
         >
-          Hushallets beredskap i ett lugnt overblickslage
+          Hushållets beredskap i lugn överblick
         </h1>
         <p
           style={{
@@ -50,8 +50,8 @@ export function HomeRoute() {
             lineHeight: 1.6,
           }}
         >
-          Har ser du hushallets status, de viktigaste gapen och vilket nasta steg
-          som gor mest nytta just nu.
+          Här ser du hushållets aktuella läge, de viktigaste luckorna och vilket
+          nästa steg som gör störst nytta just nu.
         </p>
         <PreparednessOverview />
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
@@ -70,7 +70,7 @@ export function HomeRoute() {
               color: '#f6fbfd',
             }}
           >
-            Snabb hjalp
+            Snabbhjälp
           </button>
           <button
             type="button"
@@ -87,7 +87,7 @@ export function HomeRoute() {
               color: '#f6fbfd',
             }}
           >
-            Hushallsprofil
+            Hushållsprofil
           </button>
           <button
             type="button"
@@ -104,7 +104,7 @@ export function HomeRoute() {
               color: '#173042',
             }}
           >
-            Se forrad
+            Se förråd
           </button>
           <button
             type="button"
@@ -121,7 +121,7 @@ export function HomeRoute() {
               color: '#173042',
             }}
           >
-            Lagg till vara
+            Lägg till vara
           </button>
           <button
             type="button"
@@ -155,7 +155,7 @@ export function HomeRoute() {
               color: '#173042',
             }}
           >
-            Underhall och rotation
+            Underhåll och rotation
           </button>
           <button
             type="button"

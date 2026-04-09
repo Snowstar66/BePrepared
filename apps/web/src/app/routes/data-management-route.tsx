@@ -41,11 +41,11 @@ export function DataManagementRoute() {
             Datahantering
           </p>
           <h1 id="data-management-page-title" style={{ margin: 0, color: '#173042' }}>
-            Behall kontrollen over din lokala data
+            Behåll kontrollen över din lokala data
           </h1>
           <p style={{ margin: 0, color: '#355263', lineHeight: 1.6 }}>
-            Exportera en backup, importera tidigare data och anvand appen vidare utan
-            konto eller inloggning.
+            Exportera en backup, importera tidigare data och fortsätt använda
+            appen utan konto eller inloggning.
           </p>
         </header>
         <DataManagementPanel />

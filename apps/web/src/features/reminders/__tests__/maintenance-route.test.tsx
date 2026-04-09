@@ -21,18 +21,18 @@ describe('MaintenanceRoute', () => {
       </MemoryRouter>,
     )
 
-    fireEvent.change(await screen.findByLabelText(/paminnelserytm/i), {
+    fireEvent.change(await screen.findByLabelText(/påminnelserytm/i), {
       target: { value: 'quarterly' },
     })
-    fireEvent.click(screen.getByRole('button', { name: /spara paminnelse/i }))
+    fireEvent.click(screen.getByRole('button', { name: /spara påminnelse/i }))
 
     expect(
-      await screen.findByText(/paminnelsen ar sparad och visas nu i din underhallsplan/i),
+      await screen.findByText(/påminnelsen är sparad och visas nu i din underhållsplan/i),
     ).toBeInTheDocument()
 
     const savedSettings = await new ReminderSettingsService().loadSettings()
     expect(savedSettings?.cadence).toBe('quarterly')
-    expect(screen.getByText(/nasta planerade genomgang/i)).toBeInTheDocument()
+    expect(screen.getByText(/nästa planerade genomgång/i)).toBeInTheDocument()
   })
 
   it('shows rotation candidates and lets the user mark an item as consumed', async () => {
@@ -54,7 +54,7 @@ describe('MaintenanceRoute', () => {
 
     expect(await screen.findByText(/havredryck/i)).toBeInTheDocument()
 
-    fireEvent.click(screen.getByRole('button', { name: /markera som forbrukad/i }))
+    fireEvent.click(screen.getByRole('button', { name: /markera som förbrukad/i }))
 
     await waitFor(async () => {
       const updatedItems = await inventoryService.listItems()

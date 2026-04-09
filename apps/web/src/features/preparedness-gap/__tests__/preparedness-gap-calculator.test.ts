@@ -29,8 +29,8 @@ const baseNeeds: BaselinePreparednessNeeds = {
   foodCategories: [],
   methodNotes: [],
   petsNote: null,
-  disclaimer: 'Planeringsstod',
-  nextStep: 'Jamfor med lagret.',
+  disclaimer: 'Planeringsstöd',
+  nextStep: 'Jämför med lagret.',
 }
 
 describe('calculatePreparednessGapAnalysis', () => {
@@ -51,7 +51,7 @@ describe('calculatePreparednessGapAnalysis', () => {
     expect(analysis.categories[0]?.status).toBe('partial')
     expect(analysis.categories[0]?.gapLabel).toMatch(/6 liter saknas/i)
     expect(analysis.categories[1]?.status).toBe('partial')
-    expect(analysis.categories[1]?.gapLabel).toMatch(/12 maltider saknas/i)
+    expect(analysis.categories[1]?.gapLabel).toMatch(/12 måltider saknas/i)
   })
 
   it('marks uncertain units instead of pretending to know the exact gap', () => {
@@ -69,8 +69,8 @@ describe('calculatePreparednessGapAnalysis', () => {
     ])
 
     expect(analysis.categories[0]?.status).toBe('uncertain')
-    expect(analysis.categories[0]?.inventoryLabel).toMatch(/osaker enhet/i)
+    expect(analysis.categories[0]?.inventoryLabel).toMatch(/osäker enhet/i)
     expect(analysis.categories[1]?.status).toBe('uncertain')
-    expect(analysis.categories[1]?.gapLabel).toMatch(/gar inte att omsatta exakt/i)
+    expect(analysis.categories[1]?.gapLabel).toMatch(/går inte att översätta exakt/i)
   })
 })

@@ -28,7 +28,7 @@ export function InventoryOverview() {
   }, [inventoryService])
 
   if (isLoading) {
-    return <p style={{ margin: 0, color: '#355263' }}>Laddar forradet...</p>
+    return <p style={{ margin: 0, color: '#355263' }}>Laddar förrådet...</p>
   }
 
   if (items.length === 0) {
@@ -44,11 +44,11 @@ export function InventoryOverview() {
         }}
       >
         <h2 id="inventory-empty-title" style={{ margin: 0, color: '#173042' }}>
-          Ditt forrad ar fortfarande tomt
+          Ditt förråd är fortfarande tomt
         </h2>
         <p style={{ margin: 0, color: '#355263', lineHeight: 1.6 }}>
-          Borja med nagra enkla varor i vatten, mat eller ovrigt. Da blir det
-          lattare att se vad hushallet redan har hemma.
+          Börja med några enkla varor inom vatten, mat eller övrigt. Då blir det
+          lättare att se vad hushållet redan har hemma.
         </p>
         <Link
           to="/forrad/ny"
@@ -65,7 +65,7 @@ export function InventoryOverview() {
             textDecoration: 'none',
           }}
         >
-          Lagg till din forsta vara
+          Lägg till din första vara
         </Link>
       </section>
     )
@@ -87,11 +87,11 @@ export function InventoryOverview() {
         }}
       >
         <h2 id="inventory-summary-title" style={{ margin: 0, color: '#173042' }}>
-          Lageroversikt
+          Lageröversikt
         </h2>
         <p style={{ margin: 0, color: '#355263', lineHeight: 1.6 }}>
-          Forradet ar grupperat sa att du snabbt kan se vad som finns inom vatten,
-          mat och ovrigt utan att lasa en tat lista.
+          Förrådet är grupperat så att du snabbt ser vad som finns inom vatten,
+          mat och övrigt, utan att behöva läsa en lång lista.
         </p>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
           <Link
@@ -126,7 +126,7 @@ export function InventoryOverview() {
               textDecoration: 'none',
             }}
           >
-            Underhall och rotation
+            Underhåll och rotation
           </Link>
         </div>
       </section>

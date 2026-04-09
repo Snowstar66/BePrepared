@@ -9,7 +9,7 @@ export function PreparednessHorizonSummary({
   isLoading,
   record,
 }: PreparednessHorizonSummaryProps) {
-  let body = 'Ingen planeringsperiod vald annu.'
+  let body = 'Ingen planeringsperiod vald ännu.'
 
   if (isLoading) {
     body = 'Laddar sparad planeringsperiod...'

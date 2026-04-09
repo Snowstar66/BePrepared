@@ -39,7 +39,8 @@ export function InventoryCategoryGroup({
         </span>
         {!group.summary.quantityLabel && hasItems ? (
           <span style={{ color: '#4b6575' }}>
-            Blandade enheter, visar antal artiklar i stallet for falsk precision.
+            Blandade enheter. Vi visar därför antal artiklar i stället för en
+            missvisande totalsumma.
           </span>
         ) : null}
       </summary>
@@ -74,7 +75,7 @@ export function InventoryCategoryGroup({
                 </span>
                 {item.bestBefore ? (
                   <span style={{ color: '#4b6575' }}>
-                    Bast fore: {item.bestBefore}
+                    Bäst före: {item.bestBefore}
                   </span>
                 ) : null}
                 <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
@@ -111,8 +112,8 @@ export function InventoryCategoryGroup({
             }}
           >
             <p style={{ margin: 0, color: '#355263', lineHeight: 1.6 }}>
-              Inga varor ligger i {group.label.toLowerCase()} an. Det ar helt okej
-              att fylla pa en kategori i taget.
+              Inga varor ligger i {group.label.toLowerCase()} ännu. Det är helt
+              okej att fylla på en kategori i taget.
             </p>
             <Link
               to="/forrad/ny"
@@ -129,7 +130,7 @@ export function InventoryCategoryGroup({
                 textDecoration: 'none',
               }}
             >
-              Lagg till vara i {group.label.toLowerCase()}
+              Lägg till vara i {group.label.toLowerCase()}
             </Link>
           </div>
         )}

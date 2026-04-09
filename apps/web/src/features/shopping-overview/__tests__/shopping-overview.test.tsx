@@ -40,10 +40,10 @@ describe('Shopping overview route', () => {
 
     expect(screen.getByText(/^Mat$/i)).toBeInTheDocument()
 
-    fireEvent.click(screen.getByRole('button', { name: /spara inkopsoversikt/i }))
+    fireEvent.click(screen.getByRole('button', { name: /spara inköpsöversikt/i }))
 
     expect(
-      await screen.findByText(/inkopsoversikten ar sparad lokalt/i),
+      await screen.findByText(/inköpsöversikten är sparad lokalt/i),
     ).toBeInTheDocument()
   })
 
@@ -71,7 +71,7 @@ describe('Shopping overview route', () => {
       expect(screen.getByText(/^Vatten$/i)).toBeInTheDocument()
     })
 
-    fireEvent.click(screen.getByRole('button', { name: /spara inkopsoversikt/i }))
+    fireEvent.click(screen.getByRole('button', { name: /spara inköpsöversikt/i }))
 
     firstRender.unmount()
 
@@ -97,13 +97,13 @@ describe('Shopping overview route', () => {
     )
 
     expect(
-      await screen.findByText(/det som inte langre saknas/i),
+      await screen.findByText(/det som inte längre saknas/i),
     ).toBeInTheDocument()
     expect(
-      screen.getByText(/vatten ser inte langre ut att vara ett aktivt gap/i),
+      screen.getByText(/vatten verkar inte längre vara en aktiv lucka/i),
     ).toBeInTheDocument()
     expect(
-      screen.getByText(/mat ser inte langre ut att vara ett aktivt gap/i),
+      screen.getByText(/mat verkar inte längre vara en aktiv lucka/i),
     ).toBeInTheDocument()
   })
 })

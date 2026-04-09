@@ -35,18 +35,18 @@ export function RotationReviewList() {
 
   async function handleRotate(itemId: string) {
     await inventoryService.markItemAsRotated(itemId)
-    setFeedbackMessage('Varan ar markerad som kontrollerad och flyttas ur den akuta rotationslistan.')
+    setFeedbackMessage('Varan är markerad som kontrollerad och flyttas ur den akuta rotationslistan.')
     await refreshItems()
   }
 
   async function handleConsume(itemId: string) {
     await inventoryService.consumeItem(itemId)
-    setFeedbackMessage('Lagret har uppdaterats efter att varan markerades som forbrukad.')
+    setFeedbackMessage('Lagret har uppdaterats efter att varan markerades som förbrukad.')
     await refreshItems()
   }
 
   if (isLoading) {
-    return <p style={{ margin: 0, color: '#355263' }}>Laddar rotationslista...</p>
+    return <p style={{ margin: 0, color: '#355263' }}>Laddar rotationslistan...</p>
   }
 
   const rotationCandidates = getRotationCandidates(items)
@@ -64,11 +64,12 @@ export function RotationReviewList() {
         }}
       >
         <h2 id="rotation-empty-title" style={{ margin: 0, color: '#173042' }}>
-          Inga varor behover snabb kontroll just nu
+          Inga varor behöver snabb kontroll just nu
         </h2>
         <p style={{ margin: 0, color: '#355263', lineHeight: 1.6 }}>
-          Artiklar med bast fore-datum inom 30 dagar visas har. Om du saknar datum pa
-          vissa varor fortsatter appen att hantera dem utan att markera felaktiga problem.
+          Artiklar med bäst före-datum inom 30 dagar visas här. Om du saknar
+          datum på vissa varor fortsätter appen att hantera dem utan att markera
+          felaktiga problem.
         </p>
         <Link
           to="/forrad"
@@ -85,7 +86,7 @@ export function RotationReviewList() {
             textDecoration: 'none',
           }}
         >
-          Se forradet
+          Se förrådet
         </Link>
       </section>
     )
@@ -107,8 +108,8 @@ export function RotationReviewList() {
           Varor att kontrollera eller rotera
         </h2>
         <p style={{ margin: 0, color: '#355263', lineHeight: 1.6 }}>
-          Listan prioriterar varor som narmar sig bast fore-datum och gor det enkelt att
-          markera dem som kontrollerade eller forbrukade.
+          Listan prioriterar varor som närmar sig bäst före-datum och gör det
+          enkelt att markera dem som kontrollerade eller förbrukade.
         </p>
         {feedbackMessage ? (
           <p role="status" style={{ margin: 0, color: '#1d5b3a' }}>
@@ -149,7 +150,7 @@ export function RotationReviewList() {
             </span>
           </div>
           <p style={{ margin: 0, color: '#355263', lineHeight: 1.6 }}>
-            Bast fore {candidate.item.bestBefore} och registrerat antal {candidate.item.quantity}{' '}
+            Bäst före {candidate.item.bestBefore} och registrerat antal {candidate.item.quantity}{' '}
             {candidate.item.unit}.
           </p>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
@@ -185,7 +186,7 @@ export function RotationReviewList() {
                 color: '#173042',
               }}
             >
-              Markera som forbrukad
+              Markera som förbrukad
             </button>
             <Link
               to={`/forrad/${candidate.item.id}/redigera`}

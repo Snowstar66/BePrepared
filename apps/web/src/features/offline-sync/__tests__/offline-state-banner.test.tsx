@@ -17,6 +17,6 @@ describe('OfflineStateBanner', () => {
 
     render(<OfflineStateBanner />)
 
-    expect(screen.getByRole('status')).toHaveTextContent(/offline-lage aktivt/i)
+    expect(screen.getByRole('status')).toHaveTextContent(/offline-läge aktivt/i)
   })
 })

@@ -22,11 +22,11 @@ describe('Needs route prerequisite guard', () => {
     )
 
     expect(
-      await screen.findByText(/valj planeringsperiod innan vi visar behov/i),
+      await screen.findByText(/välj planeringsperiod innan vi visar behov/i),
     ).toBeInTheDocument()
   })
 
-  it('shows the needs placeholder when profile and horizon exist', async () => {
+  it('shows the needs view when profile and horizon exist', async () => {
     const householdProfileService = new HouseholdProfileService()
     const preparednessHorizonService = new PreparednessHorizonService()
 
@@ -50,7 +50,7 @@ describe('Needs route prerequisite guard', () => {
     })
 
     expect(
-      screen.getByText(/detta ar ett forenklat planeringsstod och inte medicinskt personligt rad/i),
+      screen.getByText(/detta är ett förenklat planeringsstöd och inte personligt medicinskt råd/i),
     ).toBeInTheDocument()
   })
 })

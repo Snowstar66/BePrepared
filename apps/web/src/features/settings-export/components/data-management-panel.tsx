@@ -37,13 +37,13 @@ export function DataManagementPanel() {
     try {
       await localDataManagementService.importFromJson(await file.text())
       setErrorMessage('')
-      setStatusMessage('Importen ar klar och lokal data har ersatts pa ett kontrollerat satt.')
+      setStatusMessage('Importen är klar och lokal data har ersatts på ett kontrollerat sätt.')
     } catch (error) {
       setStatusMessage('')
       setErrorMessage(
         error instanceof LocalDataCorruptionError
           ? error.message
-          : 'Importen kunde inte genomforas.',
+          : 'Importen kunde inte genomföras.',
       )
     }
   }
@@ -65,8 +65,8 @@ export function DataManagementPanel() {
           Export och import av lokal data
         </h2>
         <p style={{ margin: 0, color: '#355263', lineHeight: 1.6 }}>
-          Du kan spara hushallsdata, lager, paminnelser och cachade guider utan att
-          skapa konto. Importen valideras innan befintlig data skrivs over.
+          Du kan spara hushållsdata, lager, påminnelser och cachade guider utan
+          att skapa konto. Importen valideras innan befintlig data skrivs över.
         </p>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
           <button

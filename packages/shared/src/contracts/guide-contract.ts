@@ -1,18 +1,18 @@
 export const guideScenarios = [
   {
     id: 'stromavbrott',
-    title: 'Stromavbrott',
-    summary: 'Fa en snabb ordning pa de viktigaste stegen nar elen forsvinner.',
+    title: 'Strömavbrott',
+    summary: 'Få snabb överblick över de viktigaste stegen när elen försvinner.',
   },
   {
     id: 'vattenbrist',
     title: 'Vattenbrist',
-    summary: 'Prioritera dricksvatten, hygien och hushallets viktigaste behov.',
+    summary: 'Prioritera dricksvatten, hygien och hushållets viktigaste behov.',
   },
   {
     id: 'allman-kris',
-    title: 'Allman kris',
-    summary: 'Fa en lugn oversikt nar laget ar oklart eller flera saker hander samtidigt.',
+    title: 'Allmän kris',
+    summary: 'Få en lugn överblick när läget är oklart eller flera saker händer samtidigt.',
   },
 ] as const
 

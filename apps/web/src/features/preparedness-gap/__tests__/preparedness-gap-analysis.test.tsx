@@ -23,7 +23,7 @@ describe('Gap analysis route', () => {
     )
 
     expect(
-      await screen.findByText(/valj planeringsperiod innan vi visar behov/i),
+      await screen.findByText(/välj planeringsperiod innan vi visar behov/i),
     ).toBeInTheDocument()
   })
 
@@ -62,7 +62,7 @@ describe('Gap analysis route', () => {
     )
 
     await waitFor(() => {
-      expect(screen.getByText(/gap-analys for 72 timmar/i)).toBeInTheDocument()
+      expect(screen.getByText(/gap-analys för 72 timmar/i)).toBeInTheDocument()
     })
 
     expect(screen.getByText(/^Vatten$/i)).toBeInTheDocument()
@@ -70,10 +70,10 @@ describe('Gap analysis route', () => {
     expect(screen.getByText(/18 liter behov/i)).toBeInTheDocument()
     expect(screen.getByText(/3 liter registrerat/i)).toBeInTheDocument()
     expect(screen.getByText(/15 liter saknas/i)).toBeInTheDocument()
-    expect(screen.getByText(/18 maltider behov/i)).toBeInTheDocument()
-    expect(screen.getByText(/2 maltider registrerat/i)).toBeInTheDocument()
+    expect(screen.getByText(/18 måltider behov/i)).toBeInTheDocument()
+    expect(screen.getByText(/2 måltider registrerat/i)).toBeInTheDocument()
     expect(
-      screen.getByRole('link', { name: /lagg till vara/i }),
+      screen.getByRole('link', { name: /lägg till vara/i }),
     ).toBeInTheDocument()
   })
 })

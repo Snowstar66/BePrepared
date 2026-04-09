@@ -28,14 +28,14 @@ export function DataRecoveryPanel({
     try {
       await localDataManagementService.importFromJson(await file.text())
       setErrorMessage('')
-      setStatusMessage('Backupen ar importerad och appen kan starta igen.')
+      setStatusMessage('Backupen är importerad och appen kan starta igen.')
       onRecovered?.()
     } catch (error) {
       setStatusMessage('')
       setErrorMessage(
         error instanceof LocalDataCorruptionError
           ? error.message
-          : 'Backupfilen kunde inte aterstalla datan.',
+          : 'Backupfilen kunde inte återställa datan.',
       )
     }
   }
@@ -43,7 +43,7 @@ export function DataRecoveryPanel({
   async function handleReset() {
     await localDataManagementService.clearAllData()
     setErrorMessage('')
-    setStatusMessage('Korrupt lokal data har rensats. Du kan nu starta om med en tom app.')
+    setStatusMessage('Skadad lokal data har rensats. Du kan nu starta om med en tom app.')
     onRecovered?.()
   }
 
@@ -79,14 +79,15 @@ export function DataRecoveryPanel({
             letterSpacing: '0.08em',
           }}
         >
-          Aterstallningslage
+          Återställningsläge
         </p>
         <h1 id="recovery-title" style={{ margin: 0, color: '#173042' }}>
-          Lokal data behover din hjalp innan appen kan fortsatta
+          Lokal data behöver åtgärdas innan appen kan fortsätta
         </h1>
         <p style={{ margin: 0, color: '#355263', lineHeight: 1.6 }}>
-          Vi stoppade appen innan nagot kraschade, eftersom lokal data inte gick att
-          validera. Du kan importera en backup eller borja om kontrollerat.
+          Vi stoppade appen innan något gick fel eftersom den lokala datan inte
+          gick att validera. Du kan importera en backup eller börja om på ett
+          kontrollerat sätt.
         </p>
         <p style={{ margin: 0, color: '#8a2e2e', lineHeight: 1.6 }}>{reason}</p>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
@@ -122,7 +123,7 @@ export function DataRecoveryPanel({
               color: '#173042',
             }}
           >
-            Borja om med tom lokal data
+            Börja om med tom lokal data
           </button>
           <input
             ref={fileInputRef}

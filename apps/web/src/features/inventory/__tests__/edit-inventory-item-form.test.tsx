@@ -34,10 +34,10 @@ describe('EditInventoryItemForm', () => {
       )
 
       await waitFor(() => {
-        expect(screen.getByLabelText(/namn pa vara/i)).toHaveValue('Pasta')
+        expect(screen.getByLabelText(/varans namn/i)).toHaveValue('Pasta')
       })
 
-      fireEvent.change(screen.getByLabelText(/namn pa vara/i), {
+      fireEvent.change(screen.getByLabelText(/varans namn/i), {
         target: { value: 'Fullkornspasta' },
       })
       fireEvent.change(screen.getByLabelText(/antal/i), {
@@ -45,11 +45,11 @@ describe('EditInventoryItemForm', () => {
       })
 
       await act(async () => {
-        fireEvent.click(screen.getByRole('button', { name: /spara andringar/i }))
+        fireEvent.click(screen.getByRole('button', { name: /spara ändringar/i }))
       })
 
       expect(
-        await screen.findByText(/fullkornspasta ar uppdaterad i ditt forrad/i),
+        await screen.findByText(/fullkornspasta är uppdaterad i ditt förråd/i),
       ).toBeInTheDocument()
 
       await expect(inventoryService.getItem(createdItem.id)).resolves.toMatchObject({
@@ -82,7 +82,7 @@ describe('EditInventoryItemForm', () => {
     expect(deleteButton).toBeDisabled()
 
     fireEvent.click(
-      screen.getByLabelText(/jag vill ta bort den har varan fran forradet/i),
+      screen.getByLabelText(/jag vill ta bort den här varan från förrådet/i),
     )
     expect(deleteButton).toBeEnabled()
 

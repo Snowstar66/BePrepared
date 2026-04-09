@@ -4,21 +4,21 @@ export const publishedGuides: PublishedGuide[] = [
   {
     id: 'guide-stromavbrott',
     scenario: 'stromavbrott',
-    title: 'Guide vid stromavbrott',
+    title: 'Guide vid strömavbrott',
     summary:
-      'Borja med ljus, varme, matlagning och information sa att hushallet far en lugn struktur direkt.',
+      'Börja med ljus, värme, matlagning och information så att hushållet snabbt får struktur och lugn.',
     steps: [
       {
         title: 'Skapa lugn och orientering',
-        body: 'Samla hushallet, kontrollera att alla mar bra och bestam en enkel plan for de kommande timmarna.',
+        body: 'Samla hushållet, kontrollera att alla mår bra och bestäm en enkel plan för de kommande timmarna.',
       },
       {
-        title: 'Sakra ljus och varme',
-        body: 'Anvand ficklampor i forsta hand och spara batterier. Hall varme inom ett mindre omrade om avbrottet blir langvarigt.',
+        title: 'Säkra ljus och värme',
+        body: 'Använd ficklampor i första hand och spara batterier. Håll värmen inom ett mindre område om avbrottet blir långvarigt.',
       },
       {
         title: 'Skydda mat och information',
-        body: 'Oppna kyl och frys sa sallan som mojligt och folj lokala uppdateringar via radio eller annan tillforlitlig kanal.',
+        body: 'Öppna kyl och frys så sällan som möjligt och följ lokala uppdateringar via radio eller annan tillförlitlig kanal.',
       },
     ],
     sourceName: 'MSB - Om krisen eller kriget kommer',
@@ -34,19 +34,19 @@ export const publishedGuides: PublishedGuide[] = [
     scenario: 'vattenbrist',
     title: 'Guide vid vattenbrist',
     summary:
-      'Prioritera dricksvatten, hygien och hushallets viktigaste anvandning utan att skapa onodig stress.',
+      'Prioritera dricksvatten, hygien och hushållets viktigaste behov utan att skapa onödig stress.',
     steps: [
       {
         title: 'Prioritera dricksvatten',
-        body: 'Satt av tillgangligt vatten till dryck och enklare matlagning fore allt annat.',
+        body: 'Sätt av tillgängligt vatten till dryck och enklare matlagning före allt annat.',
       },
       {
-        title: 'Minska forbrukningen direkt',
-        body: 'Skjut upp sadant som kan vanta, som tvatt och onodig rengoring, tills laget ar klarare.',
+        title: 'Minska förbrukningen direkt',
+        body: 'Skjut upp sådant som kan vänta, som tvätt och onödig rengöring, tills läget är klarare.',
       },
       {
-        title: 'Folja lokala rekommendationer',
-        body: 'Hall koll pa kommunal eller annan betrodd information om tappstallen, kokrekommendationer eller restriktioner.',
+        title: 'Följ lokala rekommendationer',
+        body: 'Håll koll på kommunal eller annan betrodd information om tappställen, kokrekommendationer eller restriktioner.',
       },
     ],
     sourceName: 'Livsmedelsverket och kommunal krisinformation',
@@ -60,21 +60,21 @@ export const publishedGuides: PublishedGuide[] = [
   {
     id: 'guide-allman-kris',
     scenario: 'allman-kris',
-    title: 'Guide vid allman kris',
+    title: 'Guide vid allmän kris',
     summary:
-      'Fa en lugn start nar du inte vet exakt vilket scenario som galler eller flera problem overlappar varandra.',
+      'Få en lugn start när du inte vet exakt vilket scenario som gäller eller när flera problem överlappar varandra.',
     steps: [
       {
-        title: 'Borja med situationen',
-        body: 'Skapa en snabb bild av vad som faktiskt har hant och vilka behov som ar mest akuta for hushallet.',
+        title: 'Börja med läget',
+        body: 'Skapa en snabb bild av vad som faktiskt har hänt och vilka behov som är mest akuta för hushållet.',
       },
       {
-        title: 'Sakra det viktigaste',
-        body: 'Prioritera information, vatten, varme, mat och kontakt med personer som kan behova stod.',
+        title: 'Säkra det viktigaste',
+        body: 'Prioritera information, vatten, värme, mat och kontakt med personer som kan behöva stöd.',
       },
       {
         title: 'Ta ett steg i taget',
-        body: 'Anvand appens guider och statusvyer som stod, men folj alltid tillforlitliga kallsignaler om laget andras.',
+        body: 'Använd appens guider och statusvyer som stöd, men följ alltid tillförlitlig information om läget förändras.',
       },
     ],
     sourceName: 'MSB - Krisberedskap i hemmet',

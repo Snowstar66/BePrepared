@@ -47,8 +47,8 @@ export function OfflineStateBanner() {
         borderBottom: '1px solid #e3c9a6',
       }}
     >
-      Offline-lage aktivt. Sparad hushallsdata, lageroversikt och tidigare laddade guider
-      fortsatter fungera lokalt.
+      Offline-läge aktivt. Sparad hushållsdata, lageröversikt och tidigare
+      laddade guider fortsätter fungera lokalt.
     </section>
   )
 }

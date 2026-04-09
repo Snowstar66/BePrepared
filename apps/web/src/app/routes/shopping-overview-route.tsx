@@ -35,7 +35,7 @@ export function ShoppingOverviewRoute() {
               letterSpacing: '0.08em',
             }}
           >
-            Inkopsoversikt
+            Inköpsöversikt
           </p>
           <h1
             id="shopping-overview-route-title"
@@ -44,8 +44,8 @@ export function ShoppingOverviewRoute() {
             Prioritera det som saknas mest
           </h1>
           <p style={{ margin: 0, color: '#355263', lineHeight: 1.6 }}>
-            Har samlar vi hushallets aktuella gap i en enkel lokal oversikt som du
-            kan spara och aterkomma till.
+            Här samlar vi hushållets aktuella luckor i en enkel översikt som du
+            kan spara och återkomma till.
           </p>
         </div>
 

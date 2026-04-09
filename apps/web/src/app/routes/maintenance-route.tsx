@@ -38,14 +38,14 @@ export function MaintenanceRoute() {
               letterSpacing: '0.08em',
             }}
           >
-            Underhall
+            Underhåll
           </p>
           <h1 id="maintenance-title" style={{ margin: 0, color: '#173042' }}>
-            Hall beredskapen levande over tid
+            Håll beredskapen levande över tid
           </h1>
           <p style={{ margin: 0, color: '#355263', lineHeight: 1.6 }}>
-            Har samlar vi paminnelser och en tydlig lista over varor som snart behover
-            granskas, roteras eller ersattas.
+            Här samlar vi påminnelser och en tydlig lista över varor som snart
+            behöver ses över, roteras eller ersättas.
           </p>
         </header>
         <MaintenanceOverview />

@@ -1,7 +1,7 @@
 import { z } from 'zod'
 
 export const reminderCadenceOptions = [
-  { value: 'monthly', label: 'Manadsvis' },
+  { value: 'monthly', label: 'Månadsvis' },
   { value: 'quarterly', label: 'Kvartalsvis' },
 ] as const
 
@@ -26,7 +26,7 @@ export const reminderSettingsFormSchema = z.object({
     .refine(
       (value): value is ReminderCadence =>
         reminderCadenceOptions.some((option) => option.value === value),
-      'Valj en giltig paminnelserytm.',
+      'Välj en giltig påminnelserytm.',
     ),
 })
 

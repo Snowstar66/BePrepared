@@ -65,7 +65,7 @@ export function GuideArticle() {
             textDecoration: 'none',
           }}
         >
-          Tillbaka till snabbhjalp
+          Tillbaka till snabbhjälp
         </Link>
       </section>
     )
@@ -133,16 +133,17 @@ export function GuideArticle() {
         }}
       >
         <h2 id="guide-metadata-title" style={{ margin: 0, color: '#173042' }}>
-          Kalla och innehallsstatus
+          Källa och innehållsstatus
         </h2>
         <p style={{ margin: 0, color: '#355263', lineHeight: 1.6 }}>
-          Kalla: {guide.sourceName}
+          Källa: {guide.sourceName}
         </p>
         <p style={{ margin: 0, color: '#355263', lineHeight: 1.6 }}>
-          Avsandare: {guide.publisher}
+          Avsändare: {guide.publisher}
         </p>
         <p style={{ margin: 0, color: '#355263', lineHeight: 1.6 }}>
-          {getReviewLabel(guide.reviewStatus)}: {new Date(guide.reviewedAt).toLocaleDateString('sv-SE')}
+          {getReviewLabel(guide.reviewStatus)}:{' '}
+          {new Date(guide.reviewedAt).toLocaleDateString('sv-SE')}
         </p>
         <a
           href={guide.sourceUrl}
@@ -150,7 +151,7 @@ export function GuideArticle() {
           rel="noreferrer"
           style={{ color: '#173042', fontWeight: 600 }}
         >
-          Oppna kalla
+          Öppna källa
         </a>
       </section>
     </article>

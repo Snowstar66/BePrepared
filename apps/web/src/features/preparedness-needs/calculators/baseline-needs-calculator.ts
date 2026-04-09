@@ -44,31 +44,31 @@ export function calculateBaselinePreparednessNeeds(
     totalMeals,
     foodCategories: [
       {
-        title: 'Maltider totalt',
-        value: `${totalMeals} maltider`,
-        description: 'Utga fran tre enkla maltider per person och dygn i MVP.',
+        title: 'Måltider totalt',
+        value: `${totalMeals} måltider`,
+        description: 'Utgå från tre enkla måltider per person och dygn i MVP.',
       },
       {
         title: 'Per dygn',
-        value: `${dailyMeals} maltider per dygn`,
-        description: 'Bra som enkel vardagsnara planeringsniva for hushallet.',
+        value: `${dailyMeals} måltider per dygn`,
+        description: 'En bra och vardagsnära nivå att planera utifrån.',
       },
       {
-        title: 'Mat som ar latt att planera',
-        value: 'Stapelfood, enkla proteinkallor och sant som ar latt att tillaga',
-        description: 'Hall planen robust och enkel i stallet for for detaljerad.',
+        title: 'Mat som är lätt att planera',
+        value: 'Basvaror, enkla proteinkällor och sådant som är lätt att tillaga',
+        description: 'Håll planen robust och enkel i stället för onödigt detaljerad.',
       },
     ],
     methodNotes: [
-      `Berakningen utgar fran ${peopleCount} person(er) i hushallet.`,
-      'I MVP raknas varje barn som en egen person i grundnivans planeringsstod.',
+      `Beräkningen utgår från ${peopleCount} person(er) i hushållet.`,
+      'I MVP räknas varje barn som en egen person i grundnivåns planeringsstöd.',
     ],
     petsNote: householdProfile.hasPets
-      ? 'Husdjur ar inte inraknade i siffrorna. Lag till extra vatten och mat utifran art och storlek.'
+      ? 'Husdjur är inte inräknade i siffrorna. Lägg till extra vatten och mat utifrån art och storlek.'
       : null,
     disclaimer:
-      'Detta ar ett forenklat planeringsstod och inte medicinskt personligt rad.',
+      'Detta är ett förenklat planeringsstöd och inte personligt medicinskt råd.',
     nextStep:
-      'Nasta steg ar att jamfora den har nivan med vad hushallet faktiskt redan har hemma.',
+      'Nästa steg är att jämföra den här nivån med vad hushållet faktiskt redan har hemma.',
   }
 }

@@ -36,7 +36,7 @@ export function PreparednessNeedsOverview() {
   }, [preparednessNeedsService])
 
   if (isLoading) {
-    return <p style={{ margin: 0, color: '#355263' }}>Raknar hushallets grundbehov...</p>
+    return <p style={{ margin: 0, color: '#355263' }}>Beräknar hushållets grundbehov...</p>
   }
 
   if (needs === null) {
@@ -57,10 +57,11 @@ export function PreparednessNeedsOverview() {
         }}
       >
         <h2 id="needs-summary-title" style={{ margin: 0, color: '#173042' }}>
-          Planeringsniva for {needs.horizonLabel.toLowerCase()}
+          Planeringsnivå för {needs.horizonLabel.toLowerCase()}
         </h2>
         <p style={{ margin: 0, color: '#355263', lineHeight: 1.6 }}>
-          Behovsbilden bygger pa hushallsprofilen och den valda planeringsperioden.
+          Behovsbilden bygger på hushållsprofilen och den valda
+          planeringsperioden.
         </p>
       </section>
 
@@ -79,10 +80,10 @@ export function PreparednessNeedsOverview() {
             {needs.totalWaterLiters} liter
           </p>
           <p style={{ margin: 0, color: '#355263' }}>
-            {needs.dailyWaterLiters} liter per dygn for hela hushallet
+            {needs.dailyWaterLiters} liter per dygn för hela hushållet
           </p>
           <p style={{ margin: 0, color: '#355263', lineHeight: 1.6 }}>
-            Utgangspunkten ar 3 liter per person och dygn i grundberedskapen.
+            Utgångspunkten är 3 liter per person och dygn i grundberedskapen.
           </p>
         </section>
 
@@ -91,20 +92,20 @@ export function PreparednessNeedsOverview() {
             Mat
           </h2>
           <p style={{ margin: 0, fontSize: '1.8rem', color: '#173042', fontWeight: 700 }}>
-            {needs.totalMeals} maltider
+            {needs.totalMeals} måltider
           </p>
           <p style={{ margin: 0, color: '#355263' }}>
-            {needs.dailyMeals} maltider per dygn for hela hushallet
+            {needs.dailyMeals} måltider per dygn för hela hushållet
           </p>
           <p style={{ margin: 0, color: '#355263', lineHeight: 1.6 }}>
-            Maltalet ar forenklat for att ge en tydlig miniminiva att planera mot.
+            Måltalet är förenklat för att ge en tydlig miniminivå att planera mot.
           </p>
         </section>
       </div>
 
       <section aria-labelledby="food-category-title" style={cardStyle}>
         <h2 id="food-category-title" style={{ margin: 0, color: '#173042' }}>
-          Hur matmalet kan planeras
+          Hur matmålet kan planeras
         </h2>
         <div style={{ display: 'grid', gap: '12px' }}>
           {needs.foodCategories.map((category) => (
@@ -133,7 +134,7 @@ export function PreparednessNeedsOverview() {
 
       <section aria-labelledby="method-notes-title" style={cardStyle}>
         <h2 id="method-notes-title" style={{ margin: 0, color: '#173042' }}>
-          Sa har behovet raknats
+          Så har behovet beräknats
         </h2>
         <ul style={{ margin: 0, paddingLeft: '20px', color: '#355263', lineHeight: 1.6 }}>
           {needs.methodNotes.map((note) => (
@@ -177,7 +178,7 @@ export function PreparednessNeedsOverview() {
             textDecoration: 'none',
           }}
         >
-          Lagg till vara
+          Lägg till vara
         </Link>
         <Link
           to="/gap-analys"

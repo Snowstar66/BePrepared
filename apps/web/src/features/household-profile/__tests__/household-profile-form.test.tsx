@@ -16,14 +16,14 @@ describe('Household profile flow', () => {
 
     const adultsInput = await screen.findByLabelText(/antal vuxna/i)
     const saveButton = screen.getByRole('button', {
-      name: /spara hushallsprofil/i,
+      name: /spara hushållsprofil/i,
     })
     await waitFor(() => {
       expect(saveButton).toBeEnabled()
     })
 
     const childrenInput = screen.getByLabelText(/antal barn/i)
-    const petsCheckbox = screen.getByLabelText(/hushallet har husdjur/i)
+    const petsCheckbox = screen.getByLabelText(/hushållet har husdjur/i)
     const formElement = saveButton.closest('form')
 
     expect(formElement).not.toBeNull()
@@ -39,11 +39,11 @@ describe('Household profile flow', () => {
     fireEvent.submit(formElement as HTMLFormElement)
 
     expect(
-      await screen.findByText(/antal vuxna maste vara minst 1/i),
+      await screen.findByText(/antal vuxna måste vara minst 1/i),
     ).toBeInTheDocument()
     expect(screen.getByLabelText(/antal vuxna/i)).toHaveValue(0)
     expect(screen.getByLabelText(/antal barn/i)).toHaveValue(2)
-    expect(screen.getByLabelText(/hushallet har husdjur/i)).toBeChecked()
+    expect(screen.getByLabelText(/hushållet har husdjur/i)).toBeChecked()
 
     fireEvent.change(screen.getByLabelText(/antal vuxna/i), {
       target: { value: '2' },
@@ -51,7 +51,7 @@ describe('Household profile flow', () => {
     fireEvent.submit(formElement as HTMLFormElement)
 
     expect(
-      await screen.findByText(/hushallsprofilen ar sparad lokalt/i),
+      await screen.findByText(/hushållsprofilen är sparad lokalt/i),
     ).toBeInTheDocument()
 
     firstRender.unmount()
@@ -63,6 +63,6 @@ describe('Household profile flow', () => {
     })
 
     expect(screen.getByLabelText(/antal barn/i)).toHaveValue(2)
-    expect(screen.getByLabelText(/hushallet har husdjur/i)).toBeChecked()
+    expect(screen.getByLabelText(/hushållet har husdjur/i)).toBeChecked()
   })
 })

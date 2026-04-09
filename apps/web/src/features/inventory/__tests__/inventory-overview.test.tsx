@@ -21,10 +21,10 @@ describe('Inventory overview route', () => {
     )
 
     expect(
-      await screen.findByText(/ditt forrad ar fortfarande tomt/i),
+      await screen.findByText(/ditt förråd är fortfarande tomt/i),
     ).toBeInTheDocument()
     expect(
-      screen.getByRole('link', { name: /lagg till din forsta vara/i }),
+      screen.getByRole('link', { name: /lägg till din första vara/i }),
     ).toBeInTheDocument()
   })
 
@@ -57,11 +57,11 @@ describe('Inventory overview route', () => {
     })
 
     expect(screen.getByText(/^Mat$/i)).toBeInTheDocument()
-    expect(screen.getByText(/^Ovrigt$/i)).toBeInTheDocument()
+    expect(screen.getByText(/^Övrigt$/i)).toBeInTheDocument()
     expect(screen.getByText(/totalt 6 liter/i)).toBeInTheDocument()
     expect(screen.getByText(/totalt 4 st/i)).toBeInTheDocument()
     expect(
-      screen.getByText(/inga varor ligger i ovrigt an/i),
+      screen.getByText(/inga varor ligger i övrigt än/i),
     ).toBeInTheDocument()
   })
 })

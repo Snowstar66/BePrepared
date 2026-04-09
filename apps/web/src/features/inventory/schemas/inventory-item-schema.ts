@@ -3,7 +3,7 @@ import { z } from 'zod'
 export const inventoryCategoryOptions = [
   { value: 'water', label: 'Vatten' },
   { value: 'food', label: 'Mat' },
-  { value: 'other', label: 'Ovrigt' },
+  { value: 'other', label: 'Övrigt' },
 ] as const
 
 export type InventoryCategory = (typeof inventoryCategoryOptions)[number]['value']
@@ -37,22 +37,22 @@ export const defaultInventoryItemFormValues: InventoryItemFormValues = {
 }
 
 export const inventoryItemFormSchema = z.object({
-  name: z.string().trim().min(1, 'Ange ett namn for varan.'),
+  name: z.string().trim().min(1, 'Ange ett namn för varan.'),
   category: z
     .string()
     .trim()
-    .min(1, 'Valj en kategori.')
+    .min(1, 'Välj en kategori.')
     .refine(
       (value): value is InventoryCategory =>
         inventoryCategoryOptions.some((option) => option.value === value),
-      'Valj en giltig kategori.',
+      'Välj en giltig kategori.',
     ),
   quantity: z
     .string()
     .trim()
     .min(1, 'Ange antal.')
     .refine((value) => Number.isFinite(Number(value)) && Number(value) > 0, {
-      message: 'Antal maste vara storre an 0.',
+      message: 'Antal måste vara större än 0.',
     }),
   unit: z.string().trim(),
   bestBefore: z.string().trim(),

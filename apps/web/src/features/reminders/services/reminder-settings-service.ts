@@ -55,7 +55,7 @@ export class ReminderSettingsService {
       return {
         mode: 'in-app',
         message:
-          'Den har enheten erbjuder inte systemnotiser, sa vi visar paminnelsen inne i appen i stallet.',
+          'Den här enheten erbjuder inte systemnotiser, så vi visar påminnelsen i appen i stället.',
       } as const
     }
 
@@ -63,14 +63,14 @@ export class ReminderSettingsService {
       return {
         mode: 'in-app',
         message:
-          'Systemnotiser ar inte tillgangliga just nu. Paminnelsen finns kvar som en tydlig markering inne i appen.',
+          'Systemnotiser är inte tillgängliga just nu. Påminnelsen finns kvar som en tydlig markering i appen.',
       } as const
     }
 
     return {
       mode: 'system',
       message:
-        'Systemnotiser ar tillgangliga. Appen visar ocksa alltid nasta paminnelse inne i grannssnittet.',
+        'Systemnotiser är tillgängliga. Appen visar också alltid nästa påminnelse i gränssnittet.',
     } as const
   }
 }

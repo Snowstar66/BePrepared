@@ -54,6 +54,6 @@ describe('PreparednessStatusService', () => {
     const overview = await service.loadOverview()
 
     expect(overview.state).toBe('complete')
-    expect(overview.statusTitle).toMatch(/grundnivan ar pa plats/i)
+    expect(overview.statusTitle).toMatch(/grundnivån är på plats/i)
   })
 })
