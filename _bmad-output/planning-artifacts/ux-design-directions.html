@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BePrepared UX Directions</title>
+  <style>
+    :root{
+      --bg:#edf3f5;--card:#ffffffcc;--line:#19313b14;--text:#17303a;--muted:#637b84;
+      --primary:#203a45;--primary-soft:#dfe8ec;--green:#557c68;--yellow:#a58453;--red:#aa6a6a;
+      --radius:22px;--shadow:0 18px 40px rgba(23,48,58,.10);
+      --font:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    }
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{
+      margin:0;font-family:var(--font);color:var(--text);
+      background:radial-gradient(circle at top left,#f9fbfc 0,transparent 28%),linear-gradient(180deg,#f4f8f9 0,#e9f0f2 100%);
+    }
+    .shell{width:min(1200px,calc(100vw - 24px));margin:0 auto;padding:22px 0 40px}
+    .glass,.direction{background:var(--card);backdrop-filter:blur(14px);border:1px solid #ffffff99;box-shadow:var(--shadow);border-radius:28px}
+    .hero{padding:28px}
+    .eyebrow,.tag,.pill,.nav a,.badge{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:999px}
+    .eyebrow,.tag,.pill,.badge{padding:7px 12px;font-size:12px;color:var(--muted);background:#ffffffb8}
+    h1,h2,h3,h4,p{margin:0}
+    h1{font-size:clamp(32px,5vw,56px);line-height:.98;letter-spacing:-.04em;margin-top:14px;max-width:10ch}
+    h2{font-size:clamp(28px,3.5vw,40px);letter-spacing:-.04em;margin-top:12px}
+    h3{font-size:22px;letter-spacing:-.03em}
+    h4{font-size:17px;letter-spacing:-.02em}
+    p{line-height:1.6}
+    .lead{color:var(--muted);max-width:46rem;margin-top:18px}
+    .hero-grid,.direction-grid,.split,.stats,.hero-points{display:grid;gap:16px}
+    .hero-grid{grid-template-columns:1.2fr .8fr}
+    .hero-points{grid-template-columns:repeat(3,1fr);margin-top:22px}
+    .point,.panel,.note{background:#ffffffda;border:1px solid var(--line);border-radius:20px;padding:16px}
+    .point strong{display:block;font-size:13px;color:var(--muted);margin-bottom:8px}
+    .phone{width:min(100%,360px);margin:0 auto;padding:14px;border-radius:32px;background:linear-gradient(180deg,#fff,#e7eef0);border:1px solid #fff}
+    .screen{border-radius:24px;min-height:620px;padding:18px;display:grid;gap:14px;background:linear-gradient(180deg,#f7fafb,#edf3f5)}
+    .status-hero{padding:18px;border-radius:22px;background:linear-gradient(160deg,#1a3741,#405a66);color:#f6fafb}
+    .status-hero p,.status-hero small{color:#f6fafbcc}
+    .meter{height:10px;border-radius:999px;background:#ffffff22;margin-top:14px;overflow:hidden}
+    .meter span{display:block;height:100%;width:64%;background:linear-gradient(90deg,#8db1b5,#afc8b6)}
+    .quick-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .quick,.list-item,.stat{padding:14px;border-radius:16px;border:1px solid var(--line);background:#ffffffde}
+    .list{display:grid;gap:10px;margin-top:12px}
+    .list-item{display:flex;justify-content:space-between;gap:12px;align-items:center}
+    .list-item strong{display:block;font-size:14px}
+    .list-item small,.meta,.note p,.note li,.panel p{font-size:14px;color:var(--muted)}
+    .meta{font-size:12px}
+    .panel p{margin-top:8px}
+    .stats{grid-template-columns:repeat(3,1fr);margin-top:14px}
+    .stat strong{display:block;font-size:22px;letter-spacing:-.04em}
+    .nav{position:sticky;top:10px;z-index:5;margin:14px 0 22px;padding:12px;border-radius:22px;background:#ffffffb8;border:1px solid #ffffffaa;backdrop-filter:blur(16px);box-shadow:0 14px 24px rgba(23,48,58,.08)}
+    .nav-row{display:flex;flex-wrap:wrap;gap:10px}
+    .nav a{padding:10px 14px;font-size:13px;color:var(--muted);background:#fff}
+    .direction{overflow:hidden;margin-bottom:22px}
+    .direction-head{padding:24px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#ffffff90,#ffffff20)}
+    .direction-head p{margin-top:12px;max-width:46rem;color:var(--muted)}
+    .tags{margin-top:14px;display:flex;flex-wrap:wrap;gap:10px}
+    .direction-grid{grid-template-columns:1.08fr .92fr}
+    .shot,.notes{padding:24px}
+    .shot{border-right:1px solid var(--line)}
+    .frame{border-radius:26px;overflow:hidden;border:1px solid var(--line);background:#f6f9fa}
+    .frame-inner{min-height:680px;padding:20px;display:grid;gap:14px}
+    .topbar,.cta{display:flex;justify-content:space-between;align-items:center;gap:12px}
+    .button{min-height:42px;padding:0 16px;border-radius:14px;font-size:14px;font-weight:600;display:inline-flex;align-items:center;justify-content:center}
+    .button.primary{background:linear-gradient(180deg,#28424d,#17323a);color:#f7fbfc;box-shadow:0 10px 20px rgba(23,50,58,.22)}
+    .button.secondary{background:#fff;border:1px solid var(--line)}
+    .split{grid-template-columns:1.1fr .9fr}
+    .band{padding:18px;border-radius:22px;border:1px solid var(--line);background:linear-gradient(160deg,rgba(117,146,154,.18),rgba(198,214,217,.28))}
+    .compact-nav{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:8px;border-radius:18px;background:#ffffffd8;border:1px solid var(--line)}
+    .compact-nav span{text-align:center;padding:10px 0;border-radius:12px;font-size:12px;color:var(--muted)}
+    .compact-nav .active{background:var(--primary-soft);color:var(--text);font-weight:700}
+    .note{margin-bottom:14px}
+    .note ul{margin:10px 0 0;padding-left:18px}
+    .badge.success{background:#557c6815;color:var(--green)} .badge.warning{background:#a5845315;color:var(--yellow)} .badge.danger{background:#aa6a6a16;color:var(--red)}
+    .footer{padding:12px 0 0;color:var(--muted);font-size:13px;text-align:center}
+    @media (max-width:1024px){.hero-grid,.direction-grid{grid-template-columns:1fr}.shot{border-right:0;border-bottom:1px solid var(--line)}.hero-points{grid-template-columns:1fr}}
+    @media (max-width:720px){.shell{width:min(1200px,calc(100vw - 16px))}.hero,.direction-head,.shot,.notes{padding:18px}.stats,.split,.quick-grid{grid-template-columns:1fr}.compact-nav{grid-template-columns:repeat(2,1fr)}}
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <section class="glass hero">
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow">BePrepared / UX design directions</div>
+          <h1>Sex riktningar for lugn kontroll och tydlig beredskap.</h1>
+          <p class="lead">Alla riktningarna bygger pa samma grund: kall och lugn palett, modern neutral typografi, balanserad layout, status forst och snabb uppdatering av forradet med direkt effekt.</p>
+          <div class="hero-points">
+            <div class="point"><strong>Karnupplevelse</strong><span>Oppna appen, forsta laget direkt, lagg till nagot och se omedelbar effekt pa status.</span></div>
+            <div class="point"><strong>Emotion</strong><span>Kontroll, trygghet och framatrorrelse utan alarmism eller visuell stress.</span></div>
+            <div class="point"><strong>Teknisk riktning</strong><span>Tailwind-baserad komponentgrund med manga fardiga byggblock och snabb MVP-vag.</span></div>
+          </div>
+        </div>
+        <div class="phone">
+          <div class="screen">
+            <div class="status-hero">
+              <small>Ditt hushall</small>
+              <h3 style="font-size:28px;margin-top:6px;">Ganska bra koll</h3>
+              <p style="margin-top:8px;">Ni har bra grundniva, men vatten och hygien kan forstarkas for 7 dagar.</p>
+              <div class="meter"><span></span></div>
+            </div>
+            <div class="quick-grid">
+              <div class="quick"><strong>Jag behover hjalp nu</strong><p class="meta" style="margin-top:8px;">Guider for stromavbrott, vattenbrist och samhallsstorning.</p></div>
+              <div class="quick"><strong>Lagg till vara</strong><p class="meta" style="margin-top:8px;">Uppdatera lagret pa nagra sekunder.</p></div>
+            </div>
+            <div class="panel" style="margin-top:auto;">
+              <h4>Prioriterat nasta steg</h4>
+              <div class="list">
+                <div class="list-item"><div><strong>Dricksvatten</strong><small>6 liter saknas for malnivan</small></div><span class="badge warning">Bor fixas snart</span></div>
+                <div class="list-item"><div><strong>Ficklampor</strong><small>Guiden rekommenderar en till per vuxen</small></div><span class="badge success">Enkel atgard</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <nav class="nav">
+      <div class="nav-row">
+        <a href="#d1">1 Calm Command</a>
+        <a href="#d2">2 Guided Layers</a>
+        <a href="#d3">3 Soft Ledger</a>
+        <a href="#d4">4 Split Path</a>
+        <a href="#d5">5 Quiet Radar</a>
+        <a href="#d6">6 Status First Compact</a>
+      </div>
+    </nav>
+
+    <section id="d1" class="direction">
+      <div class="direction-head">
+        <div class="eyebrow">Direction 1</div>
+        <h2>Calm Command</h2>
+        <p>Den mest statuscentrerade riktningen. Stark huvudpanel, tydlig kontrollkansla och lugn "du-har-koll"-signal direkt pa forsta skarmen.</p>
+        <div class="tags"><span class="tag">Status dominerar</span><span class="tag">Lugn auktoritet</span><span class="tag">Hog tydlighet</span></div>
+      </div>
+      <div class="direction-grid">
+        <div class="shot">
+          <div class="frame"><div class="frame-inner">
+            <div class="topbar"><div><div class="meta">Onsdag 8 april</div><h3>Hushallets beredskap</h3></div><span class="pill">7 dagar aktivt</span></div>
+            <div class="panel" style="background:linear-gradient(160deg,#1b3741,#3d5965);color:#f5f9fa;padding:22px;">
+              <div class="meta" style="color:#f5f9facc;">Samlad bedomning</div><h4 style="font-size:30px;color:#fff;margin-top:8px;">Ni ar pa god vag</h4>
+              <p style="color:#f5f9facc;">Vatten och hygien drar ned totalen. Ovriga omraden ser stabila ut.</p>
+              <div class="stats">
+                <div class="stat" style="background:#ffffff14;color:#fff;"><strong>72%</strong><span style="color:#f5f9facc;">Total niva</span></div>
+                <div class="stat" style="background:#ffffff14;color:#fff;"><strong>2</strong><span style="color:#f5f9facc;">Snabba luckor</span></div>
+                <div class="stat" style="background:#ffffff14;color:#fff;"><strong>1</strong><span style="color:#f5f9facc;">Guide att lasa</span></div>
+              </div>
+              <div class="cta" style="margin-top:16px;justify-content:flex-start;gap:10px;"><span class="button primary">Lagg till vara</span><span class="button secondary">Se full oversikt</span></div>
+            </div>
+            <div class="split">
+              <div class="panel"><h4>Prioriterade luckor</h4><div class="list"><div class="list-item"><div><strong>Dricksvatten</strong><small>Saknas for tva dygn</small></div><span class="badge warning">Prioritet</span></div><div class="list-item"><div><strong>Hygienkit</strong><small>Komplettera med enkel reserv</small></div><span class="badge">Nasta steg</span></div></div></div>
+              <div class="panel"><h4>Snabbhjalp</h4><p>Stromavbrott, vattenbrist och allman kris som stora, tydliga val direkt pa startsidan.</p><div class="cta" style="margin-top:14px;justify-content:flex-start;"><span class="button secondary">Oppna guider</span></div></div>
+            </div>
+            <div class="compact-nav"><span class="active">Status</span><span>Forrad</span><span>Guider</span><span>Installningar</span></div>
+          </div></div>
+        </div>
+        <aside class="notes">
+          <div class="note"><h4>Vad den gor bra</h4><p>Gor status till huvudakten. Anvandaren far snabbt kontroll, tydliga luckor och direkt handlingsvag utan att scanna manga moduler.</p></div>
+          <div class="note"><h4>Passar om</h4><ul><li>statuskontroll ar huvudlobet</li><li>du vill signalera trygg styrning</li><li>forsta skarmen ska ge "vi har koll"</li></ul></div>
+          <div class="note"><h4>Risk</h4><p>Kan bli lite styrande om tonen inte halls mjuk nog. Behover balanseras med varm copy och aterhallsamma statusfarger.</p></div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="d2" class="direction">
+      <div class="direction-head">
+        <div class="eyebrow">Direction 2</div>
+        <h2>Guided Layers</h2>
+        <p>Mer vagledande och sekventiell. Fokus pa att appen hjalper anvandaren vidare steg for steg snarare an att presentera allt pa en gang.</p>
+        <div class="tags"><span class="tag">Vagledande</span><span class="tag">Mjuk onboardingkansla</span><span class="tag">Latt att forsta</span></div>
+      </div>
+      <div class="direction-grid">
+        <div class="shot">
+          <div class="frame"><div class="frame-inner">
+            <div class="topbar"><div><div class="meta">BePrepared</div><h3>Borja med det viktigaste</h3></div><span class="pill">Lugn oversikt</span></div>
+            <div class="band"><h4 style="font-size:28px;">Bra grund, nagra tydliga nasta steg</h4><p>Appen oversatter ert nulage till enkla atgarder i ratt ordning.</p></div>
+            <div class="panel"><h4>1. Se hur ni ligger till</h4><p>En sammanfattning som forklarar hushallets niva med enkelt sprak, inte med tekniska begrepp.</p><div class="cta" style="justify-content:flex-start;margin-top:14px;"><span class="button primary">Visa status</span></div></div>
+            <div class="panel"><h4>2. Forbattra lagret pa 20 sekunder</h4><p>Snabbform med namn, kategori och antal. Omedelbar uppdatering av rekommendationer.</p><div class="cta" style="justify-content:flex-start;margin-top:14px;gap:10px;"><span class="button secondary">Lagg till vara</span><span class="button secondary">Valj kategori</span></div></div>
+            <div class="panel"><h4>3. Om nagot hander nu</h4><div class="list"><div class="list-item"><div><strong>Stromavbrott</strong><small>Kort guide i tre steg</small></div><span class="badge success">Redo offline</span></div><div class="list-item"><div><strong>Vattenbrist</strong><small>Vad ni gor forst</small></div><span class="badge">Snabbhjalp</span></div></div></div>
+          </div></div>
+        </div>
+        <aside class="notes">
+          <div class="note"><h4>Vad den gor bra</h4><p>Forvandlar appen till en trygg guide. Sarskilt stark om du vill minska friktion for ovana anvandare och gora starten sjalvforklarande.</p></div>
+          <div class="note"><h4>Passar om</h4><ul><li>du prioriterar tydlig vagledning over datathet</li><li>appen ska kanna stottande och pedagogisk</li><li>forsta gangen ar extra viktig</li></ul></div>
+          <div class="note"><h4>Risk</h4><p>Kan upplevas lite mindre kontrollorienterad an Direction 1 om statuslagret inte far tillracklig tyngd.</p></div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="d3" class="direction">
+      <div class="direction-head">
+        <div class="eyebrow">Direction 3</div>
+        <h2>Soft Ledger</h2>
+        <p>Den tydligaste kopplingen till Sortly och pantry-appar. Inventarieforsta, men mjukad och oversatt till beredskap i stallet for administration.</p>
+        <div class="tags"><span class="tag">Inventarieforst</span><span class="tag">Snabb uppdatering</span><span class="tag">Latt vardagsanvandning</span></div>
+      </div>
+      <div class="direction-grid">
+        <div class="shot">
+          <div class="frame"><div class="frame-inner">
+            <div class="topbar"><div><div class="meta">Forrad</div><h3>Det ni redan har hemma</h3></div><span class="pill">Synkat med status</span></div>
+            <div class="compact-nav"><span class="active">Alla</span><span>Vatten</span><span>Mat</span><span>Ovrigt</span></div>
+            <div class="panel"><h4>Snabb lagg till</h4><div class="list-item"><div><strong>Ny vara</strong><small>Namn, kategori, antal</small></div><span class="button primary">+</span></div><div class="cta" style="justify-content:flex-start;margin-top:14px;gap:10px;"><span class="button secondary">Lagg till vatten</span><span class="button secondary">Lagg till mat</span></div></div>
+            <div class="panel"><h4>Senaste uppdateringar</h4><div class="list"><div class="list-item"><div><strong>12 L vatten</strong><small>Nyss tillagt</small></div><span class="badge success">Status steg upp</span></div><div class="list-item"><div><strong>Konserver</strong><small>4 burkar registrerade</small></div><span class="badge">Syns i matmal</span></div><div class="list-item"><div><strong>Ficklampor</strong><small>1 kvar att komplettera</small></div><span class="badge warning">Lucka kvar</span></div></div></div>
+            <div class="panel"><h4>Vad det betyder</h4><p>En mindre, tydlig sammanfattning som oversatter lagret till faktisk beredskapsniva och nasta steg.</p></div>
+          </div></div>
+        </div>
+        <aside class="notes">
+          <div class="note"><h4>Vad den gor bra</h4><p>Otroligt stark om vardaglig uppdatering av forradet ska vara den mest frekventa interaktionen. Kanns snabb, familiar och effektiv.</p></div>
+          <div class="note"><h4>Passar om</h4><ul><li>uppdatera lager ar den stora kroken</li><li>du vill ga nara Sortly/My Pantry Tracker</li><li>status kan vara sekundar men alltid narvarande</li></ul></div>
+          <div class="note"><h4>Risk</h4><p>Kan glida for langt mot inventariesystem om status och trygghetslagret inte tydligt ligger overst i narrativet.</p></div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="d4" class="direction">
+      <div class="direction-head">
+        <div class="eyebrow">Direction 4</div>
+        <h2>Split Path</h2>
+        <p>Den mest bokstavliga tolkningen av "Mitt forrad" och "Jag behover hjalp nu". Tvadelad start for tva mentala lagen.</p>
+        <div class="tags"><span class="tag">Tva tydliga ingangar</span><span class="tag">Krislage + vardagslage</span><span class="tag">Hog orientering</span></div>
+      </div>
+      <div class="direction-grid">
+        <div class="shot">
+          <div class="frame"><div class="frame-inner">
+            <div class="topbar"><div><div class="meta">Start</div><h3>Vad behover du just nu?</h3></div><span class="pill">Snabb orientering</span></div>
+            <div class="split" style="grid-template-columns:1fr 1fr;">
+              <div class="panel" style="min-height:220px;"><h4>Mitt forrad</h4><p>Se status, lagg till varor och folj luckor over tid.</p><div class="cta" style="justify-content:flex-start;margin-top:16px;"><span class="button primary">Oppna oversikt</span></div></div>
+              <div class="panel" style="min-height:220px;background:linear-gradient(180deg,#f5faf9,#edf5f3);"><h4>Jag behover hjalp nu</h4><p>Ga direkt till korta guider for de vanligaste scenarierna.</p><div class="cta" style="justify-content:flex-start;margin-top:16px;"><span class="button secondary">Oppna guider</span></div></div>
+            </div>
+            <div class="panel"><h4>Status i korthet</h4><div class="stats"><div class="stat"><strong>Lagom</strong><span>Total niva idag</span></div><div class="stat"><strong>2</strong><span>Luckor att ta tag i</span></div><div class="stat"><strong>+1</strong><span>En enkel vinst idag</span></div></div></div>
+            <div class="panel"><h4>Snabb atgard</h4><div class="list-item"><div><strong>Lagg till vatten</strong><small>Tar mindre an 15 sekunder</small></div><span class="badge success">Bra nasta steg</span></div></div>
+          </div></div>
+        </div>
+        <aside class="notes">
+          <div class="note"><h4>Vad den gor bra</h4><p>Otroligt tydlig informationsarkitektur. Matchar exakt de tva huvudlagen som kommit fram i researchen.</p></div>
+          <div class="note"><h4>Passar om</h4><ul><li>du vill att anvandaren genast ska valja lage</li><li>snabbhjalp ar lika viktig som lagerstatus</li><li>startsidan ska vara enkel att forklara verbalt</li></ul></div>
+          <div class="note"><h4>Risk</h4><p>Kan kannas lite portalig om statussignalen blir for svag mellan de tva ingangsvalen.</p></div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="d5" class="direction">
+      <div class="direction-head">
+        <div class="eyebrow">Direction 5</div>
+        <h2>Quiet Radar</h2>
+        <p>Mer visualiserad och "situation-aware". Den mest editoriala riktningen med mjuk statusgrafik och stark kansla av oversikt i ett svep.</p>
+        <div class="tags"><span class="tag">Mjuk visualisering</span><span class="tag">Lugn premiumkansla</span><span class="tag">Mer designad</span></div>
+      </div>
+      <div class="direction-grid">
+        <div class="shot">
+          <div class="frame"><div class="frame-inner">
+            <div class="topbar"><div><div class="meta">Oversikt</div><h3>Sa star ni rustade idag</h3></div><span class="pill">Mjuk statusbild</span></div>
+            <div class="panel"><div style="display:grid;place-items:center;min-height:240px;border-radius:24px;background:radial-gradient(circle at center,rgba(120,150,160,.22),rgba(255,255,255,.7) 58%,rgba(255,255,255,.9) 100%);border:1px solid var(--line);text-align:center"><div><div class="meta" style="margin-bottom:8px;">Samlad beredskapsbild</div><div style="font-size:56px;letter-spacing:-.06em;font-weight:700;">72%</div><div class="meta" style="font-size:14px;">Stabil grund, nagra tydliga luckor kvar</div></div></div></div>
+            <div class="split">
+              <div class="panel"><h4>Det som ser bra ut</h4><div class="list"><div class="list-item"><div><strong>Mat</strong><small>God grundniva</small></div><span class="badge success">Stabilt</span></div><div class="list-item"><div><strong>Ljus och varme</strong><small>Grundklart</small></div><span class="badge success">Bra</span></div></div></div>
+              <div class="panel"><h4>Det som saknas</h4><div class="list"><div class="list-item"><div><strong>Vatten</strong><small>Behov kvar for 2 dygn</small></div><span class="badge warning">Prioritet</span></div><div class="list-item"><div><strong>Hygien</strong><small>Liten lucka</small></div><span class="badge">Nasta steg</span></div></div></div>
+            </div>
+            <div class="cta" style="justify-content:flex-start;"><span class="button primary">Forbattra status</span><span class="button secondary">Oppna snabbhjalp</span></div>
+          </div></div>
+        </div>
+        <aside class="notes">
+          <div class="note"><h4>Vad den gor bra</h4><p>Ger den mest premium-rena upplevelsen. Kanns lugn, modern och lite mer Apple, med mjuk visualisering av nulaget.</p></div>
+          <div class="note"><h4>Passar om</h4><ul><li>du vill ha stark visuell identitet</li><li>statusbilden ska kannas intuitiv i ett svep</li><li>UI:t far vara lite mer formgivet an strikt verktygsmassigt</li></ul></div>
+          <div class="note"><h4>Risk</h4><p>Kan bli aningen for designad om snabb handling och registrering inte ges lika tydlig plats som statusbilden.</p></div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="d6" class="direction">
+      <div class="direction-head">
+        <div class="eyebrow">Direction 6</div>
+        <h2>Status First Compact</h2>
+        <p>Den mest balanserade och produktionsnara kompromissen. Haller status overst, men ar mer kompakt, praktisk och komponentvanlig an de andra.</p>
+        <div class="tags"><span class="tag">Balans</span><span class="tag">Byggbar snabbt</span><span class="tag">Bra for MVP</span></div>
+      </div>
+      <div class="direction-grid">
+        <div class="shot">
+          <div class="frame"><div class="frame-inner">
+            <div class="topbar"><div><div class="meta">Startsida</div><h3>Snabb overblick</h3></div><span class="pill">MVP-vanlig</span></div>
+            <div class="panel"><div class="split"><div><h4 style="font-size:28px;">Ni ar ganska bra rustade</h4><p>Det viktigaste att fylla pa nu ar vatten och hygien.</p><div class="cta" style="justify-content:flex-start;margin-top:14px;"><span class="button primary">Lagg till vara</span></div></div><div class="band"><div class="meta">Status idag</div><div style="font-size:42px;letter-spacing:-.06em;margin-top:10px;">72%</div><div class="meta" style="margin-top:6px;">2 prioriterade luckor</div></div></div></div>
+            <div class="split"><div class="panel"><h4>Nasta steg</h4><div class="list"><div class="list-item"><div><strong>Kop 6 L vatten</strong><small>Lyfter malnivan tydligt</small></div><span class="badge warning">Effekt direkt</span></div><div class="list-item"><div><strong>Komplettera hygien</strong><small>Liten lucka</small></div><span class="badge">Snabb fix</span></div></div></div><div class="panel"><h4>Snabbhjalp</h4><div class="list"><div class="list-item"><div><strong>Stromavbrott</strong><small>Tre steg direkt</small></div><span class="badge success">Offline</span></div><div class="list-item"><div><strong>Vattenbrist</strong><small>Vad ni gor forst</small></div><span class="badge">Guide</span></div></div></div></div>
+            <div class="panel"><h4>Senast uppdaterat</h4><p>Tre nya varor registrerades den har veckan. Statusen gick upp fran 68% till 72%.</p></div>
+          </div></div>
+        </div>
+        <aside class="notes">
+          <div class="note"><h4>Vad den gor bra</h4><p>Den mest realistiska MVP-riktningen. Tydlig, lugn, produktionsnara och enkel att bygga med ett Tailwind-baserat komponentlager.</p></div>
+          <div class="note"><h4>Passar om</h4><ul><li>du vill ha balans mellan status, handling och snabbhjalp</li><li>utvecklingshastighet ar viktig</li><li>du vill landa i en stark men inte overdesignad forstariktning</li></ul></div>
+          <div class="note"><h4>Risk</h4><p>Minst riskfylld, men kanske inte den mest minnesvarda om du vill ha en starkare visuell signatur.</p></div>
+        </aside>
+      </div>
+    </section>
+
+    <div class="footer">Valj antingen en hel favorit eller kombinera informationsarkitektur fran en riktning med tonalitet eller visualitet fran en annan.</div>
+  </div>
+</body>
+</html>

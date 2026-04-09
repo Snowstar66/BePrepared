@@ -1,0 +1,25 @@
+{
+  "name": "@beprepared/api",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "pnpm run build && pnpm run start",
+    "start": "node dist/server.js",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@beprepared/shared": "workspace:*",
+    "express": "^5.1.0",
+    "pino": "^10.1.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.5",
+    "@types/node": "^24.12.2",
+    "@types/supertest": "^6.0.3",
+    "supertest": "^7.1.4",
+    "typescript": "~6.0.2",
+    "vitest": "^3.2.4"
+  }
+}

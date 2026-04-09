@@ -1,0 +1,12 @@
+{
+  "name": "beprepared",
+  "private": true,
+  "version": "0.0.0",
+  "packageManager": "pnpm@10.6.1",
+  "scripts": {
+    "dev:web": "pnpm --filter @beprepared/web dev",
+    "dev:api": "pnpm --filter @beprepared/api build && pnpm --filter @beprepared/api start",
+    "build": "pnpm -r build",
+    "test": "pnpm -r test"
+  }
+}
