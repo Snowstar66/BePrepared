@@ -1,17 +1,17 @@
 import type { CSSProperties } from 'react'
 
 export const pageMainStyle: CSSProperties = {
-  minHeight: '100vh',
-  padding: '24px',
+  minHeight: 'calc(100vh - 96px)',
+  padding: 'clamp(16px, 4vw, 28px)',
   display: 'grid',
-  placeItems: 'center',
+  placeItems: 'start center',
 }
 
 export const pagePanelStyle: CSSProperties = {
   width: '100%',
-  maxWidth: '720px',
-  padding: '24px',
-  borderRadius: '24px',
+  maxWidth: '760px',
+  padding: 'clamp(20px, 4vw, 28px)',
+  borderRadius: '28px',
   background:
     'linear-gradient(180deg, rgba(255,255,255,0.98), rgba(242,247,249,0.98))',
   boxShadow: '0 24px 60px rgba(23,48,66,0.12)',
@@ -99,7 +99,7 @@ export const actionStackStyle: CSSProperties = {
 export const actionGridStyle: CSSProperties = {
   display: 'grid',
   gap: '12px',
-  gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+  gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
 }
 
 const buttonBaseStyle: CSSProperties = {

@@ -9,15 +9,16 @@ describe('App shell', () => {
 
       expect(
         await screen.findByRole('heading', {
-          name: /buffertkoll/i,
+          name: /buffertkoll översikt/i,
         }),
       ).toBeInTheDocument()
 
       expect(await screen.findByText(/buffertstatus/i)).toBeInTheDocument()
+      expect(await screen.findByText(/det här är din dashboard/i)).toBeInTheDocument()
 
       expect(
         screen.getByRole('button', {
-          name: /öppna meny/i,
+          name: /meny/i,
         }),
       ).toBeInTheDocument()
 
