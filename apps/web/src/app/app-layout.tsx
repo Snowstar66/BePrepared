@@ -248,6 +248,10 @@ export function AppLayout() {
   const isHome = location.pathname === '/'
 
   useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
+  }, [location.pathname])
+
+  useEffect(() => {
     if (!isMenuOpen) {
       return
     }
