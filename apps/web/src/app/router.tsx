@@ -1,4 +1,5 @@
 import { createBrowserRouter } from 'react-router-dom'
+import { AppLayout } from './app-layout'
 import { GapAnalysisRoute } from './routes/gap-analysis-route'
 import { DataManagementRoute } from './routes/data-management-route'
 import { GuideRoute } from './routes/guide-route'
@@ -15,50 +16,56 @@ import { ShoppingOverviewRoute } from './routes/shopping-overview-route'
 export const router = createBrowserRouter([
   {
     path: '/',
-    element: <HomeRoute />,
-  },
-  {
-    path: '/profil',
-    element: <ProfileRoute />,
-  },
-  {
-    path: '/behov',
-    element: <NeedsRoute />,
-  },
-  {
-    path: '/gap-analys',
-    element: <GapAnalysisRoute />,
-  },
-  {
-    path: '/inkopsoversikt',
-    element: <ShoppingOverviewRoute />,
-  },
-  {
-    path: '/installningar/data',
-    element: <DataManagementRoute />,
-  },
-  {
-    path: '/underhall',
-    element: <MaintenanceRoute />,
-  },
-  {
-    path: '/snabbhjalp',
-    element: <QuickHelpRoute />,
-  },
-  {
-    path: '/guider/:scenarioId',
-    element: <GuideRoute />,
-  },
-  {
-    path: '/forrad/ny',
-    element: <InventoryQuickAddRoute />,
-  },
-  {
-    path: '/forrad',
-    element: <InventoryOverviewRoute />,
-  },
-  {
-    path: '/forrad/:itemId/redigera',
-    element: <InventoryItemEditRoute />,
+    element: <AppLayout />,
+    children: [
+      {
+        index: true,
+        element: <HomeRoute />,
+      },
+      {
+        path: 'profil',
+        element: <ProfileRoute />,
+      },
+      {
+        path: 'behov',
+        element: <NeedsRoute />,
+      },
+      {
+        path: 'gap-analys',
+        element: <GapAnalysisRoute />,
+      },
+      {
+        path: 'inkopsoversikt',
+        element: <ShoppingOverviewRoute />,
+      },
+      {
+        path: 'installningar/data',
+        element: <DataManagementRoute />,
+      },
+      {
+        path: 'underhall',
+        element: <MaintenanceRoute />,
+      },
+      {
+        path: 'snabbhjalp',
+        element: <QuickHelpRoute />,
+      },
+      {
+        path: 'guider/:scenarioId',
+        element: <GuideRoute />,
+      },
+      {
+        path: 'forrad/ny',
+        element: <InventoryQuickAddRoute />,
+      },
+      {
+        path: 'forrad',
+        element: <InventoryOverviewRoute />,
+      },
+      {
+        path: 'forrad/:itemId/redigera',
+        element: <InventoryItemEditRoute />,
+      },
+    ],
   },
 ])

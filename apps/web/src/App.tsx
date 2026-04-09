@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import { RouterProvider } from 'react-router-dom'
-import { OfflineStateBanner } from './features/offline-sync/components/offline-state-banner'
 import { DataRecoveryPanel } from './features/settings-export/components/data-recovery-panel'
 import { LocalDataManagementService } from './features/settings-export/services/local-data-management-service'
 import { router } from './app/router'
@@ -41,6 +40,7 @@ function App() {
 
   useEffect(() => {
     document.documentElement.lang = 'sv'
+    document.title = 'Buffertkoll'
   }, [])
 
   if (integrityState.isChecking) {
@@ -62,12 +62,7 @@ function App() {
     )
   }
 
-  return (
-    <>
-      <OfflineStateBanner />
-      <RouterProvider router={router} />
-    </>
-  )
+  return <RouterProvider router={router} />
 }
 
 export default App

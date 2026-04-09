@@ -1,3 +1,4 @@
+import { AppIcon } from '../../../shared/ui/app-icons'
 import { surfaceCardStyle } from '../../../shared/ui/styles'
 import type { PreparednessOverviewState } from '../services/preparedness-status-service'
 
@@ -37,9 +38,24 @@ export function PreparednessStatusCard({
           alignItems: 'center',
         }}
       >
-        <h2 id="preparedness-status-title" style={{ margin: 0, color: '#173042' }}>
-          Beredskapsläge
-        </h2>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+          <div
+            style={{
+              width: '42px',
+              height: '42px',
+              borderRadius: '14px',
+              display: 'grid',
+              placeItems: 'center',
+              background: '#e3f0e5',
+              color: '#1d5b3a',
+            }}
+          >
+            <AppIcon kind="status" size={22} color="currentColor" />
+          </div>
+          <h2 id="preparedness-status-title" style={{ margin: 0, color: '#173042' }}>
+            Buffertstatus
+          </h2>
+        </div>
         <span
           style={{
             padding: '6px 10px',

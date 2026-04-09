@@ -15,6 +15,7 @@ export interface PreparednessOverview {
   statusBody: string
   statusLabel: string
   gapHighlights: Array<{
+    key: 'water' | 'food' | 'setup'
     label: string
     summary: string
     statusLabel: string
@@ -46,6 +47,7 @@ function getMissingSetupOverview(
     statusLabel: 'Starta med grunderna',
     gapHighlights: [
       {
+        key: 'setup',
         label: 'Det som behöver göras först',
         summary:
           'Fyll i hushållsprofilen och välj planeringsperiod så att behov och luckor kan beräknas på rätt nivå.',
@@ -184,6 +186,7 @@ export class PreparednessStatusService {
           : statusCopy.body,
       statusLabel: statusCopy.label,
       gapHighlights: analysis.categories.map((category) => ({
+        key: category.key,
         label: category.label,
         summary: category.gapLabel,
         statusLabel: category.statusLabel,

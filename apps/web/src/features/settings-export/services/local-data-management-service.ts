@@ -75,7 +75,7 @@ export class LocalDataManagementService {
 
     if (!parsedExport.success) {
       throw new LocalDataCorruptionError(
-        'Importfilen matchar inte den forvantade strukturen for BePrepared-data.',
+        'Importfilen matchar inte den forvantade strukturen for Buffertkoll-data.',
       )
     }
 

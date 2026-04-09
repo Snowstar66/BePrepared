@@ -3,11 +3,11 @@ import {
   accentButtonStyle,
   actionGridStyle,
   pageEyebrowStyle,
+  pageHeaderStyle,
   pageIntroStyle,
   pageMainStyle,
   pagePanelStyle,
   pageTitleStyle,
-  pageHeaderStyle,
   primaryButtonStyle,
   secondaryButtonStyle,
 } from '../../shared/ui/styles'
@@ -20,10 +20,28 @@ export function HomeRoute() {
     <main style={pageMainStyle}>
       <section aria-labelledby="app-shell-title" style={pagePanelStyle}>
         <div style={pageHeaderStyle}>
-          <p style={pageEyebrowStyle}>BePrepared</p>
-          <h1 id="app-shell-title" style={pageTitleStyle}>
-            Hushållets beredskap i lugn överblick
-          </h1>
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '16px',
+              flexWrap: 'wrap',
+            }}
+          >
+            <img
+              src="/buffertkoll-logo.svg"
+              alt="Buffertkoll"
+              width="84"
+              height="84"
+              style={{ width: '84px', height: '84px' }}
+            />
+            <div style={{ display: 'grid', gap: '8px', flex: '1 1 240px' }}>
+              <p style={pageEyebrowStyle}>Din hushållsbuffer</p>
+              <h1 id="app-shell-title" style={pageTitleStyle}>
+                Buffertkoll
+              </h1>
+            </div>
+          </div>
           <p style={pageIntroStyle}>
             Här ser du hushållets aktuella läge, de viktigaste luckorna och vilket
             nästa steg som gör störst nytta just nu.
