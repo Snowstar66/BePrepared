@@ -41,20 +41,20 @@ function getMissingSetupOverview(
 
   return {
     state: 'missing',
-    statusTitle: 'Beredskapsbilden är inte igång ännu',
+    statusTitle: 'Beredskapsbilden är inte igång än',
     statusBody: `Vi saknar fortfarande ${missingParts.join(' och ')} innan vi kan visa en pålitlig status för hushållet.`,
-    statusLabel: 'Börja med grunden',
+    statusLabel: 'Starta med grunderna',
     gapHighlights: [
       {
-        label: 'Det som behövs först',
+        label: 'Det som behöver göras först',
         summary:
           'Fyll i hushållsprofilen och välj planeringsperiod så att behov och luckor kan beräknas på rätt nivå.',
         statusLabel: 'Ofullständig grund',
       },
     ],
-    nextStepTitle: 'Bästa nästa steg',
+    nextStepTitle: 'Börja med profilen',
     nextStepBody:
-      'Börja med hushållsprofilen. Där väljer du också planeringsperiod innan vi går vidare till status och luckor.',
+      'Öppna hushållsprofilen och välj planeringsperiod. Därefter kan vi visa en tydlig statusbild och mer träffsäkra råd.',
     nextStepHref: '/profil',
     nextStepLabel: 'Gå till hushållsprofilen',
   }
@@ -84,11 +84,11 @@ function buildStatusCopy(
 
   return {
     title: hasUncertainCategory
-      ? 'Du har en lovande men delvis osäker statusbild'
+      ? 'Du har en bra start, men underlaget är inte helt tydligt än'
       : 'Det finns fortfarande tydliga luckor att fylla',
     body: hasUncertainCategory
-      ? 'Hushållet har en tydlig start, men några poster behöver tydligare enheter innan statusen blir helt tillförlitlig.'
-      : 'Statusbilden visar vad som saknas mest just nu, så att du kan ta nästa steg utan att gissa.',
+      ? 'En del poster behöver tydligare enheter innan statusen blir helt tillförlitlig.'
+      : 'Statusbilden visar vad som saknas mest just nu, så att du kan prioritera nästa steg med lugn och tydlighet.',
     label: hasUncertainCategory ? 'Delvis kartlagt' : 'Fortsätt bygga',
   }
 }
@@ -105,8 +105,8 @@ function getNextStepForCategories(
 
   if (uncertainCategory !== undefined) {
     return {
-      nextStepTitle: 'Bästa nästa steg',
-      nextStepBody: `Förtydliga enheterna i ${uncertainCategory.label.toLowerCase()} så att statusen blir mer exakt och användbar.`,
+      nextStepTitle: 'Förtydliga det som är oklart',
+      nextStepBody: `Se över enheterna i ${uncertainCategory.label.toLowerCase()} så att statusen blir mer exakt och lättare att lita på.`,
       nextStepHref: '/forrad',
       nextStepLabel: 'Se över lagret',
     }
@@ -118,17 +118,17 @@ function getNextStepForCategories(
 
   if (incompleteCategory !== undefined) {
     return {
-      nextStepTitle: 'Bästa nästa steg',
-      nextStepBody: `Komplettera ${incompleteCategory.label.toLowerCase()} för att minska hushållets viktigaste lucka.`,
+      nextStepTitle: 'Minska den viktigaste luckan',
+      nextStepBody: `Komplettera ${incompleteCategory.label.toLowerCase()} först för att stärka hushållets beredskap där det gör mest nytta.`,
       nextStepHref: '/forrad/ny',
       nextStepLabel: 'Lägg till vara',
     }
   }
 
   return {
-    nextStepTitle: 'Bästa nästa steg',
+    nextStepTitle: 'Fortsätt hålla nivån stabil',
     nextStepBody:
-      'Grundnivån ser bra ut. Fortsätt hålla lagret uppdaterat och använd gap-analysen för att följa förändringar över tid.',
+      'Grundnivån ser bra ut. Fortsätt uppdatera lagret och använd gap-analysen om hushållets förutsättningar förändras.',
     nextStepHref: '/gap-analys',
     nextStepLabel: 'Se full gap-analys',
   }

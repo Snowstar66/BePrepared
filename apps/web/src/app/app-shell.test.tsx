@@ -13,9 +13,7 @@ describe('App shell', () => {
         }),
       ).toBeInTheDocument()
 
-      expect(
-        await screen.findByText(/beredskapsstatus/i),
-      ).toBeInTheDocument()
+      expect(await screen.findByText(/beredskapsläge/i)).toBeInTheDocument()
 
       expect(
         screen.getByRole('button', {

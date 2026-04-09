@@ -19,7 +19,7 @@ export function GapSummaryCard({ highlights }: GapSummaryCardProps) {
       }}
     >
       <h2 id="gap-summary-card-title" style={{ margin: 0, color: '#173042' }}>
-        Viktigaste luckorna
+        Viktigaste luckorna just nu
       </h2>
       <div style={{ display: 'grid', gap: '12px' }}>
         {highlights.map((highlight) => (

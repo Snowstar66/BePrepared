@@ -2,7 +2,14 @@ import type { InventoryItemRecord } from '../../inventory/schemas/inventory-item
 
 const DELTA_FEEDBACK_STORAGE_KEY = 'bePrepared.preparednessDeltaFeedback'
 const LITER_UNITS = new Set(['l', 'liter', 'liters', 'ltr'])
-const MEAL_UNITS = new Set(['måltid', 'måltider', 'maltid', 'maltider', 'portion', 'portioner'])
+const MEAL_UNITS = new Set([
+  'måltid',
+  'måltider',
+  'maltid',
+  'maltider',
+  'portion',
+  'portioner',
+])
 
 export interface PreparednessDeltaFeedbackPayload {
   title: string
@@ -40,10 +47,7 @@ function getExactCategoryDescriptor(item: InventoryItemRecord) {
 }
 
 function savePreparednessDeltaFeedback(payload: PreparednessDeltaFeedbackPayload) {
-  window.sessionStorage.setItem(
-    DELTA_FEEDBACK_STORAGE_KEY,
-    JSON.stringify(payload),
-  )
+  window.sessionStorage.setItem(DELTA_FEEDBACK_STORAGE_KEY, JSON.stringify(payload))
 }
 
 export function consumePreparednessDeltaFeedback() {

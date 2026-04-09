@@ -22,7 +22,7 @@ export function PreparednessDeltaFeedback({
         id="preparedness-delta-feedback-title"
         style={{ margin: 0, color: '#173042' }}
       >
-        PreparednessDeltaFeedback
+        Senaste förändringen
       </h2>
       <h3 style={{ margin: 0, color: '#173042', fontSize: '1.05rem' }}>{title}</h3>
       <p style={{ margin: 0, color: '#355263', lineHeight: 1.6 }}>{body}</p>

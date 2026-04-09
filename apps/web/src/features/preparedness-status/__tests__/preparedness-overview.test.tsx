@@ -19,7 +19,7 @@ describe('PreparednessOverview', () => {
       'bePrepared.preparednessDeltaFeedback',
       JSON.stringify({
         title: 'Beredskapen har uppdaterats',
-        body: '6 liter lades till och vattengapet raknades om direkt.',
+        body: '6 liter lades till och vattengapet räknades om direkt.',
       }),
     )
 
@@ -29,11 +29,9 @@ describe('PreparednessOverview', () => {
       </MemoryRouter>,
     )
 
+    expect(await screen.findByText(/senaste förändringen/i)).toBeInTheDocument()
     expect(
-      await screen.findByText(/preparednessdeltafeedback/i),
-    ).toBeInTheDocument()
-    expect(
-      screen.getByText(/6 liter lades till och vattengapet raknades om direkt/i),
+      screen.getByText(/6 liter lades till och vattengapet räknades om direkt/i),
     ).toBeInTheDocument()
   })
 })
